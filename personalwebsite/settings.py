@@ -50,12 +50,32 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'personalwebsite.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.environ.get('MARIADB_PRIVATE_HOST') or os.environ.get('MYSQL_HOST'):
+    db_host = os.environ.get('MARIADB_PRIVATE_HOST') or os.environ.get('MYSQL_HOST')
+    db_port = os.environ.get('MARIADB_PRIVATE_PORT') or os.environ.get('MYSQL_PORT', '3306')
+    db_name = os.environ.get('MARIADB_DATABASE') or os.environ.get('MYSQL_DATABASE', os.environ.get('MYSQL_DB', 'railway'))
+    db_user = os.environ.get('MARIADB_USER') or os.environ.get('MYSQL_USER', os.environ.get('MYSQL_USERNAME', 'root'))
+    db_pass = os.environ.get('MARIADB_PASSWORD') or os.environ.get('MYSQL_PASSWORD', '')
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': db_host,
+            'PORT': db_port,
+            'NAME': db_name,
+            'USER': db_user,
+            'PASSWORD': db_pass,
+            'OPTIONS': {
+                'autocommit': True,
+            },
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
