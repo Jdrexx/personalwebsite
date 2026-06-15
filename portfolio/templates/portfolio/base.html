@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ content.name }}{% endblock %}</title>
+  <meta name="description" content="Personal website for {{ content.name }} — project management, web, data, and operations portfolio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'portfolio/css/site.css' %}">
+</head>
+<body>
+  <div class="page-glow"></div>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="{{ content.name }} home">
+      <span class="brand-mark">JD</span>
+      <span>{{ content.name }}</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="{% if active == 'home' %}active{% endif %}" href="/">Home</a>
+      <a class="{% if active == 'projects' %}active{% endif %}" href="/projects/">Projects</a>
+      <a class="{% if active == 'resume' %}active{% endif %}" href="/resume/">Resume</a>
+      <a href="{{ content.github }}" target="_blank" rel="noreferrer">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div>
+      <strong>{{ content.name }}</strong>
+      <p>{{ content.location }} · {{ content.email }}</p>
+    </div>
+    <a class="footer-link" href="{{ content.github }}" target="_blank" rel="noreferrer">GitHub Profile</a>
+  </footer>
+</body>
+</html>

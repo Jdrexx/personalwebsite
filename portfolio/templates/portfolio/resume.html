@@ -1,0 +1,52 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}Resume | {{ content.name }}{% endblock %}
+{% block content %}
+<section class="page-hero section-shell resume-intro">
+  <div>
+    <p class="eyebrow">Resume</p>
+    <h1>{{ content.name }}</h1>
+    <p class="lead">{{ content.summary }}</p>
+    <div class="contact-strip">
+      <span>{{ content.location }}</span>
+      <span>{{ content.phone }}</span>
+      <a href="mailto:{{ content.email }}">{{ content.email }}</a>
+    </div>
+  </div>
+  <div class="image-placeholder resume-image" aria-label="Future resume image placeholder">
+    <span>Image Placeholder</span>
+    <small>Optional professional photo or resume graphic</small>
+  </div>
+</section>
+
+<section class="section-shell timeline">
+  <p class="eyebrow">Experience</p>
+  {% for job in content.experience %}
+  <article class="timeline-item">
+    <div class="timeline-meta">
+      <strong>{{ job.dates }}</strong>
+      <span>{{ job.location }}</span>
+    </div>
+    <div class="timeline-card">
+      <h2>{{ job.role }}</h2>
+      <p class="company">{{ job.company }}</p>
+      <ul>
+        {% for bullet in job.bullets %}<li>{{ bullet }}</li>{% endfor %}
+      </ul>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="section-shell split-section">
+  <div>
+    <p class="eyebrow">Education</p>
+    <h2>{{ content.education }}</h2>
+  </div>
+  <div>
+    <p class="eyebrow">Core Skills</p>
+    <div class="skill-cloud compact">
+      {% for skill in content.skills %}<span>{{ skill }}</span>{% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}{{ content.name }} | Portfolio{% endblock %}
+{% block content %}
+<section class="hero section-shell">
+  <div class="hero-copy">
+    <p class="eyebrow">{{ content.location }} · Available for project, web, data, and operations support</p>
+    <h1>{{ content.headline }}</h1>
+    <p class="lead">{{ content.tagline }}</p>
+    <div class="hero-actions">
+      <a class="button primary" href="{{ content.cta.primary_url }}">{{ content.cta.primary_label }}</a>
+      <a class="button secondary" href="{{ content.cta.secondary_url }}">{{ content.cta.secondary_label }}</a>
+    </div>
+  </div>
+  <aside class="image-placeholder hero-card" aria-label="Future headshot image placeholder">
+    <span>Image Placeholder</span>
+    <small>Headshot or branded portrait goes here</small>
+  </aside>
+</section>
+
+<section class="section-shell split-section">
+  <div>
+    <p class="eyebrow">Professional Summary</p>
+    <h2>Structured execution with practical technology.</h2>
+  </div>
+  <p class="section-text">{{ content.summary }}</p>
+</section>
+
+<section class="section-shell cards-grid">
+  {% for area in content.focus_areas %}
+  <article class="card">
+    <div class="card-icon">0{{ forloop.counter }}</div>
+    <h3>{{ area.title }}</h3>
+    <p>{{ area.description }}</p>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="section-shell showcase">
+  <div class="image-placeholder wide" aria-label="Future project screenshot placeholder">
+    <span>Image Placeholder</span>
+    <small>Use this area for a dashboard screenshot, client work sample, or workflow visual.</small>
+  </div>
+  <div>
+    <p class="eyebrow">Featured Work</p>
+    <h2>Portfolio projects focused on real-world workflows.</h2>
+    <p class="section-text">A selection of Python, automation, OCR, data, and productivity projects from GitHub.</p>
+    <a class="text-link" href="/projects/">Explore projects →</a>
+  </div>
+</section>
+
+<section class="section-shell">
+  <p class="eyebrow">Tools & Skills</p>
+  <div class="skill-cloud">
+    {% for skill in content.skills %}<span>{{ skill }}</span>{% endfor %}
+  </div>
+</section>
+{% endblock %}
