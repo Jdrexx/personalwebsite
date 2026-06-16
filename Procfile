@@ -1,2 +1,2 @@
-web: gunicorn personalwebsite.wsgi --bind 0.0.0.0:$PORT --workers 2 --timeout 120
-release: python manage.py collectstatic --noinput && python manage.py migrate --noinput
+web: python manage.py collectstatic --noinput && gunicorn personalwebsite.wsgi --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+release: python manage.py migrate --noinput
