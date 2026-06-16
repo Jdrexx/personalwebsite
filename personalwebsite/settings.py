@@ -50,12 +50,37 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'personalwebsite.wsgi.application'
 
-if os.environ.get('MARIADB_PRIVATE_HOST') or os.environ.get('MYSQL_HOST'):
-    db_host = os.environ.get('MARIADB_PRIVATE_HOST') or os.environ.get('MYSQL_HOST')
-    db_port = os.environ.get('MARIADB_PRIVATE_PORT') or os.environ.get('MYSQL_PORT', '3306')
-    db_name = os.environ.get('MARIADB_DATABASE') or os.environ.get('MYSQL_DATABASE', os.environ.get('MYSQL_DB', 'railway'))
-    db_user = os.environ.get('MARIADB_USER') or os.environ.get('MYSQL_USER', os.environ.get('MYSQL_USERNAME', 'root'))
-    db_pass = os.environ.get('MARIADB_PASSWORD') or os.environ.get('MYSQL_PASSWORD', '')
+db_host = (
+    os.environ.get('MARIADB_PRIVATE_HOST') or
+    os.environ.get('MYSQL_HOST') or
+    os.environ.get('MYSQLHOST') or
+    ''
+)
+db_port = (
+    os.environ.get('MARIADB_PRIVATE_PORT') or
+    os.environ.get('MYSQL_PORT', '3306') or
+    os.environ.get('MYSQLPORT', '3306')
+)
+db_name = (
+    os.environ.get('MARIADB_DATABASE') or
+    os.environ.get('MYSQL_DATABASE') or
+    os.environ.get('MYSQLDATABASE') or
+    'railway'
+)
+db_user = (
+    os.environ.get('MARIADB_USER') or
+    os.environ.get('MYSQL_USER') or
+    os.environ.get('MYSQLUSER') or
+    'root'
+)
+db_pass = (
+    os.environ.get('MARIADB_PASSWORD') or
+    os.environ.get('MYSQL_PASSWORD') or
+    os.environ.get('MYSQLPASSWORD') or
+    ''
+)
+
+if db_host:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
