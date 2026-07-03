@@ -4,7 +4,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-only-change-me-for-production')
-DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
+DEBUG = os.environ.get('DJANGO_DEBUG', '0') == '1'
 ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
@@ -59,8 +59,9 @@ db_host = (
 )
 db_port = (
     os.environ.get('MARIADB_PRIVATE_PORT') or
-    os.environ.get('MYSQL_PORT', '3306') or
-    os.environ.get('MYSQLPORT', '3306')
+    os.environ.get('MYSQL_PORT') or
+    os.environ.get('MYSQLPORT') or
+    '3306'
 )
 db_name = (
     os.environ.get('MARIADB_DATABASE') or
