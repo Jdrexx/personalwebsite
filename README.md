@@ -38,6 +38,8 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
+    cd /tmp/personalwebsite && source .venv/bin/activate && DJANGO_DEBUG=1 python manage.py runserver 8765
+
 
 Open http://127.0.0.1:8000
 
