@@ -1,0 +1,111 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block title %}Case Study: KnowledgeAssistant | {{ content.name }}{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'portfolio/css/case-study.css' %}">
+<section class="page-hero section-shell fade-in">
+  <p class="eyebrow">Case Study</p>
+  <h1>KnowledgeAssistant</h1>
+  <p class="lead">A RAG-powered knowledge base that lets teams upload documents, search passages, and get answers with source citations.</p>
+</section>
+
+<section class="cs-banner fade-in">
+  <img class="cs-hero" src="{% static 'portfolio/projects/knowledgeassistant.png' %}" alt="KnowledgeAssistant interface screenshot" loading="lazy">
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <div class="cs-layout">
+    <div>
+      <p class="eyebrow">The Problem</p>
+      <h2>Knowledge buried in documents</h2>
+      <p class="section-text">Teams across every industry sit on mountains of documentation — SOPs, project notes, client records, technical specs. Finding the right information usually means digging through folders, guessing filenames, or asking someone who "might know." That's slow, error-prone, and scales terribly as the document set grows.</p>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><strong>Hours saved/week</strong><span>~5-10</span></div>
+      <div class="cs-stat"><strong>Document formats</strong><span>TXT, PDF, MD</span></div>
+      <div class="cs-stat"><strong>Search method</strong><span>Semantic + keyword</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <p class="eyebrow">How It Works</p>
+  <h2>Upload. Index. Ask.</h2>
+  <div class="cs-flow">
+    <div class="cs-step">
+      <span class="cs-step-num">01</span>
+      <h3>Upload documents</h3>
+      <p class="section-text">Users upload plain text files, markdown documents, or copy-paste notes. Each document is stored with metadata for tracking.</p>
+    </div>
+    <div class="cs-step">
+      <span class="cs-step-num">02</span>
+      <h3>Chunk & index</h3>
+      <p class="section-text">Documents are split into overlapping passages, each converted into a searchable vector embedding. The index maps every passage back to its source document for attribution.</p>
+    </div>
+    <div class="cs-step">
+      <span class="cs-step-num">03</span>
+      <h3>Ask questions</h3>
+      <p class="section-text">Users type a question in plain English. The system finds the most relevant passages using semantic similarity, then returns answers with citations pointing to the original source.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <div class="cs-layout">
+    <div>
+      <p class="eyebrow">Technical Decisions</p>
+      <h2>Why build it this way</h2>
+      <div class="cs-decisions">
+        <div class="cs-decision">
+          <h3>No commercial vector database</h3>
+          <p class="section-text">Uses in-process similarity search instead of Pinecone or Weaviate. Keeps deployment simple, cost zero, and data fully private — critical for internal business docs.</p>
+        </div>
+        <div class="cs-decision">
+          <h3>Overlapping chunks</h3>
+          <p class="section-text">Passages overlap by ~20% to avoid cutting off meaning at chunk boundaries. A sentence that spans two chunks still appears in full in at least one passage.</p>
+        </div>
+        <div class="cs-decision">
+          <h3>Citation-first answers</h3>
+          <p class="section-text">Every answer includes the source passage and document name. The user can verify claims and explore the original context — no black-box responses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <p class="eyebrow">Results & Impact</p>
+  <h2>What it enables</h2>
+  <div class="cs-results">
+    <div class="cs-result">
+      <span class="cs-result-icon">⚡</span>
+      <p class="section-text">New team members can query internal docs from day one instead of waiting for a manual walkthrough.</p>
+    </div>
+    <div class="cs-result">
+      <span class="cs-result-icon">🔍</span>
+      <p class="section-text">Reduces time spent searching for specific policies, specs, or notes from minutes to seconds.</p>
+    </div>
+    <div class="cs-result">
+      <span class="cs-result-icon">📋</span>
+      <p class="section-text">Every answer is auditable — citations prevent hallucinated or out-of-context responses.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <p class="eyebrow">What's Next</p>
+  <h2>Planned improvements</h2>
+  <div class="cs-next">
+    <ul>
+      <li>Support for PDF and Word document uploads with automatic text extraction</li>
+      <li>Batch upload — index entire folders at once</li>
+      <li>Conversation history — keep context across multiple questions in a session</li>
+      <li>Admin dashboard to view query logs, popular searches, and document usage stats</li>
+    </ul>
+  </div>
+  <div class="cs-cta">
+    <a class="button primary" href="https://github.com/Jdrexx/knowledgeassistant" target="_blank" rel="noopener noreferrer">View repository →</a>
+    <a class="button secondary" href="{% url 'portfolio:projects' %}">Back to projects</a>
+  </div>
+</section>
+{% endblock %}

@@ -21,3 +21,7 @@ def projects(request):
 def contact(request):
     sent = request.method == 'POST'
     return render(request, 'portfolio/contact.html', {**base_context('contact'), 'sent': sent})
+
+
+def case_knowledgeassistant(request):
+    return render(request, 'portfolio/case_knowledgeassistant.html', base_context('projects'))

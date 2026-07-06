@@ -44,3 +44,9 @@ class PortfolioPagesTests(TestCase):
         response = self.client.get(reverse('portfolio:contact'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Get in touch')
+
+    def test_case_study_page_loads(self):
+        response = self.client.get(reverse('portfolio:case_knowledgeassistant'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'KnowledgeAssistant')
+        self.assertContains(response, 'Case Study')
