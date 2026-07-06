@@ -1,7 +1,8 @@
 {% extends 'portfolio/base.html' %}
+{% load static %}
 {% block title %}Resume | {{ content.name }}{% endblock %}
 {% block content %}
-<section class="page-hero section-shell resume-intro">
+<section class="page-hero section-shell resume-intro fade-in">
   <div>
     <p class="eyebrow">Resume</p>
     <h1>{{ content.name }}</h1>
@@ -10,15 +11,15 @@
       <span>{{ content.location }}</span>
       <span>{{ content.phone }}</span>
       <a href="mailto:{{ content.email }}">{{ content.email }}</a>
+      <a class="download-link" href="{% static 'portfolio/resume.pdf' %}" download>Download Resume PDF</a>
     </div>
   </div>
-  <div class="image-placeholder resume-image" aria-label="Future resume image placeholder">
-    <span>Image Placeholder</span>
-    <small>Optional professional photo or resume graphic</small>
+  <div class="resume-visual" aria-hidden="true">
+    <div class="blob blob-portrait"></div>
   </div>
 </section>
 
-<section class="section-shell timeline">
+<section class="section-shell timeline fade-in">
   <p class="eyebrow">Experience</p>
   {% for job in content.experience %}
   <article class="timeline-item">

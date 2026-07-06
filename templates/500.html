@@ -1,0 +1,10 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}Server Error | {{ content.name }}{% endblock %}
+{% block content %}
+<section class="page-hero section-shell error-page">
+  <p class="eyebrow">500</p>
+  <h1>Something went wrong</h1>
+  <p class="lead">An unexpected error occurred. Please try again later.</p>
+  <a class="button primary" href="/">Back to home</a>
+</section>
+{% endblock %}

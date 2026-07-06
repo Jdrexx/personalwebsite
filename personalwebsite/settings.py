@@ -3,7 +3,12 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-only-change-me-for-production')
+# ── Secret Key ─────────────────────────────────────────────────────────────
+# Must be set via environment variable in production. Falls back to a dev
+# key when unset — Django's system check framework (check --deploy) will
+# flag this as a warning in production.
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-key-do-not-use-in-production')
+
 DEBUG = os.environ.get('DJANGO_DEBUG', '0') == '1'
 ALLOWED_HOSTS = [
     host.strip()
@@ -11,6 +16,7 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
+# ── Installed Apps ─────────────────────────────────────────────────────────
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -21,6 +27,7 @@ INSTALLED_APPS = [
     'portfolio',
 ]
 
+# ── Middleware ──────────────────────────────────────────────────────────────
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -51,6 +58,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'personalwebsite.wsgi.application'
 
+# ── Database ───────────────────────────────────────────────────────────────
 db_host = (
     os.environ.get('MARIADB_PRIVATE_HOST') or
     os.environ.get('MYSQL_HOST') or
@@ -104,6 +112,7 @@ else:
         }
     }
 
+# ── Auth ───────────────────────────────────────────────────────────────────
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -111,15 +120,33 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# ── Internationalization ───────────────────────────────────────────────────
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'America/Los_Angeles'
 USE_I18N = True
 USE_TZ = True
 
+# ── Static & Media ─────────────────────────────────────────────────────────
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# ── Production Security (env-gated) ────────────────────────────────────────
+if not DEBUG:
+    SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL', '0') == '1'
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = int(os.environ.get('DJANGO_HSTS_SECONDS', '31536000'))
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    CSRF_TRUSTED_ORIGINS = [
+        origin.strip()
+        for origin in os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',')
+        if origin.strip()
+    ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

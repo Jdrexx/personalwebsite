@@ -2,11 +2,8 @@
 
 [![Django](https://img.shields.io/badge/Django-5.2-092E20?logo=django&logoColor=white)](https://www.djangoproject.com/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Railway](https://img.shields.io/badge/Railway-Deployed-0B0D0E?logo=railway&logoColor=white)](https://railway.app)
 
-**Live site:** [jdreksler.com](https://jdreksler.com)
-
-A personal portfolio website built with Django 5.2. Dark theme, responsive layout, editable content isolated from templates. Deployed on Railway via Gunicorn and WhiteNoise.
+A personal portfolio website built with Django 5.2. Dark theme, responsive layout, editable content isolated from templates. Designed for Railway deployment via Gunicorn and WhiteNoise.
 
 ## Features
 
@@ -15,7 +12,7 @@ A personal portfolio website built with Django 5.2. Dark theme, responsive layou
 - Resume page — full work experience timeline with role details
 - Contact section in the footer
 - All site copy in `portfolio/content.py` — no template edits needed for text updates
-- Responsive dark theme (blues, greys, blacks)
+- Responsive dark theme (teal accent, greys, blacks)
 - SQLite by default, MySQL via env vars in production
 
 ## Tech Stack
@@ -74,7 +71,8 @@ Update the `SITE_CONTENT` dictionary to change text without touching templates o
 
 Configured for one-click deploy. Procfile handles migrations and Gunicorn start.
 
-Required env vars: `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS`. Set `DJANGO_DEBUG=1` for dev only.
+Required env vars: `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS`.
+Set `DJANGO_DEBUG=1` for dev only.
 
 ## Tests
 
@@ -84,4 +82,4 @@ python manage.py test
 
 ## License
 
-Private — personal portfolio site.
+MIT — see [LICENSE](LICENSE) for details.
