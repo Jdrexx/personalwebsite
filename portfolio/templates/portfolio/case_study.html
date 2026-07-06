@@ -23,7 +23,7 @@
     <div class="cs-stats">
       {% for result in cs.results|slice:":3" %}
       <div class="cs-stat">
-        <strong>{{ result.icon }} {{ result.text|default:result.desc }}</strong>
+        <strong>{{ result.icon }} {% if result.text %}{{ result.text }}{% else %}{{ result.desc }}{% endif %}</strong>
       </div>
       {% endfor %}
     </div>
@@ -64,7 +64,7 @@
     {% for result in cs.results %}
     <div class="cs-result">
       <span class="cs-result-icon">{{ result.icon }}</span>
-      <p class="section-text">{{ result.text|default:result.desc }}</p>
+      <p class="section-text">{% if result.text %}{{ result.text }}{% else %}{{ result.desc }}{% endif %}</p>
     </div>
     {% endfor %}
   </div>
