@@ -1,0 +1,35 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}Contact | {{ content.name }}{% endblock %}
+{% block content %}
+<section class="page-hero section-shell fade-in">
+  <p class="eyebrow">Get in touch</p>
+  <h1>Contact</h1>
+  <p class="lead">Have a project, question, or opportunity? Send me a message.</p>
+</section>
+
+<section class="section-shell fade-in">
+  {% if sent %}
+  <div class="form-success">
+    <p>Thanks for reaching out! I'll get back to you soon.</p>
+    <a class="button primary" href="{% url 'portfolio:home' %}">Back to home</a>
+  </div>
+  {% else %}
+  <form class="contact-form" method="post" action="{% url 'portfolio:contact' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required placeholder="What would you like to discuss?"></textarea>
+    </div>
+    <button class="button primary" type="submit">Send message</button>
+  </form>
+  {% endif %}
+</section>
+{% endblock %}

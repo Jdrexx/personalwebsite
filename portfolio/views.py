@@ -16,3 +16,8 @@ def resume(request):
 
 def projects(request):
     return render(request, 'portfolio/projects.html', base_context('projects'))
+
+
+def contact(request):
+    sent = request.method == 'POST'
+    return render(request, 'portfolio/contact.html', {**base_context('contact'), 'sent': sent})

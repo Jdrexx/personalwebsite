@@ -38,3 +38,9 @@ class PortfolioPagesTests(TestCase):
         self.assertEqual(reverse('portfolio:home'), '/')
         self.assertEqual(reverse('portfolio:projects'), '/projects/')
         self.assertEqual(reverse('portfolio:resume'), '/resume/')
+        self.assertEqual(reverse('portfolio:contact'), '/contact/')
+
+    def test_contact_page_loads(self):
+        response = self.client.get(reverse('portfolio:contact'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Get in touch')
