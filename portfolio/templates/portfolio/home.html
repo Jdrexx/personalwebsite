@@ -139,5 +139,32 @@
     input.value = '';
   });
 })();
+
+// Animated counters
+(function(){
+  var els = document.querySelectorAll('.metric-value');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      obs.unobserve(el);
+      var text = el.textContent;
+      var match = text.match(/(\d+)(\+?)/);
+      if (!match) return;
+      var target = parseInt(match[1]);
+      var suffix = match[2] || '';
+      el.textContent = '0' + suffix;
+      var current = 0;
+      var step = Math.ceil(target / 30);
+      var timer = setInterval(function() {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = current + suffix;
+      }, 40);
+    });
+  }, { threshold: 0.5 });
+  els.forEach(function(el) { obs.observe(el); });
+})();
 </script>
 {% endblock %}
