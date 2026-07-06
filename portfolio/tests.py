@@ -46,7 +46,11 @@ class PortfolioPagesTests(TestCase):
         self.assertContains(response, 'Get in touch')
 
     def test_case_study_page_loads(self):
-        response = self.client.get(reverse('portfolio:case_knowledgeassistant'))
+        response = self.client.get(reverse('portfolio:case_study', kwargs={'slug': 'knowledgeassistant'}))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'KnowledgeAssistant')
         self.assertContains(response, 'Case Study')
+
+    def test_case_study_404_for_missing(self):
+        response = self.client.get(reverse('portfolio:case_study', kwargs={'slug': 'nonexistent'}))
+        self.assertEqual(response.status_code, 404)
