@@ -23,6 +23,10 @@ def contact(request):
     return render(request, 'portfolio/contact.html', {**base_context('contact'), 'sent': sent})
 
 
+def thanks(request):
+    return render(request, 'portfolio/thanks.html', base_context('home'))
+
+
 def case_study(request, slug):
     from .content import SITE_CONTENT
     project = None

@@ -54,3 +54,8 @@ class PortfolioPagesTests(TestCase):
     def test_case_study_404_for_missing(self):
         response = self.client.get(reverse('portfolio:case_study', kwargs={'slug': 'nonexistent'}))
         self.assertEqual(response.status_code, 404)
+
+    def test_thanks_page_loads(self):
+        response = self.client.get(reverse('portfolio:thanks'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Thanks for reaching out')

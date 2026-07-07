@@ -1,0 +1,10 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}Message Sent | {{ content.name }}{% endblock %}
+{% block content %}
+<section class="page-hero section-shell fade-in" style="text-align:center;min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+  <p class="eyebrow">Sent</p>
+  <h1>Thanks for reaching out</h1>
+  <p class="lead" style="margin-bottom:24px;">I'll get back to you as soon as possible.</p>
+  <a class="button primary" href="{% url 'portfolio:home' %}">Back to home</a>
+</section>
+{% endblock %}
