@@ -160,10 +160,8 @@ h3 { font-size: 1.1rem; font-weight: 600; }
 
 /* ── Decorative blobs ───────────────────────────────────────────────── */
 .hero-visual { position: relative; min-height: 400px; display: grid; place-items: center; }
+.hero-logo { display: block; width: 100%; max-width: 400px; height: auto; object-fit: contain; }
 .blob { position: absolute; border-radius: 50%; opacity: 0.15; pointer-events: none; }
-.blob-1 { width: 340px; height: 340px; background: radial-gradient(circle, var(--accent), transparent); top: 5%; left: 10%; animation: float 12s ease-in-out infinite; }
-.blob-2 { width: 200px; height: 200px; background: radial-gradient(circle, #38bdf8, transparent); bottom: 10%; right: 0; animation: float 10s ease-in-out infinite reverse; }
-.blob-3 { width: 120px; height: 120px; background: radial-gradient(circle, #818cf8, transparent); top: 45%; left: 40%; animation: float 8s ease-in-out infinite; }
 .blob-4 { width: 280px; height: 280px; background: radial-gradient(circle, var(--accent), transparent); position: relative; margin: 0 auto; animation: float 11s ease-in-out infinite; }
 .blob-sm { width: 120px; height: 120px; background: radial-gradient(circle, var(--accent), transparent); position: relative; margin: 0 auto; opacity: 0.2; animation: float 9s ease-in-out infinite; }
 .blob-portrait { width: 200px; height: 200px; background: radial-gradient(circle at 30% 30%, var(--accent), #38bdf8); position: relative; margin: 0 auto; opacity: 0.2; animation: float 10s ease-in-out infinite; }
@@ -290,9 +288,6 @@ h3 { font-size: 1.1rem; font-weight: 600; }
   .hero, .split-section, .showcase, .resume-intro, .timeline-item { grid-template-columns: 1fr; }
   .cards-grid, .project-grid { grid-template-columns: 1fr; }
   .hero-visual { min-height: 200px; }
-  .blob-1 { width: 200px; height: 200px; }
-  .blob-2 { width: 120px; height: 120px; }
-  .blob-3 { width: 80px; height: 80px; }
   .timeline-item { grid-template-columns: 1fr; gap: 8px; }
   .timeline-meta { display: flex; gap: 12px; align-items: baseline; }
   .footer-links { margin-top: 4px; }
