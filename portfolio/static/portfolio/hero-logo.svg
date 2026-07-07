@@ -4,40 +4,45 @@
     <!-- Outer ring (radius 130, stroke 18 → outer edge at 139, inner at 121) -->
     <circle cx="200" cy="200" r="130" fill="none" stroke="#2dd4bf" stroke-width="18"/>
 
-    <!-- 8 square pedestals — each overlapping ring by 2px to eliminate anti-alias gaps -->
-    <!-- Top — center 200,49 — bottom at y=63 overlaps ring top y=61 by 2px -->
-    <rect x="186" y="35" width="28" height="28" rx="2"/>
-    <circle cx="200" cy="49" r="6"/>
+    <!-- 8 square pedestals (28×28, rx=2) — all overlapping ring by 2px -->
+    <!-- Cardinal squares: inner edge at radius 141 (ring outer 139 + 2px overlap) -->
+    
+    <!-- Top — center y = 200 - 141 - 14 = 45 -->
+    <rect x="186" y="31" width="28" height="28" rx="2"/>
+    <circle cx="200" cy="45" r="6"/>
 
-    <!-- Upper-right — center 311,89 — corner overlaps ring outer edge -->
-    <rect x="297" y="75" width="28" height="28" rx="2" transform="rotate(45 311 89)"/>
-    <circle cx="311" cy="89" r="6"/>
+    <!-- Right — center x = 200 + 141 + 14 = 355 -->
+    <rect x="341" y="186" width="28" height="28" rx="2"/>
+    <circle cx="355" cy="200" r="6"/>
 
-    <!-- Right — center 351,200 — left edge at x=337 overlaps ring right x=339 by 2px -->
-    <rect x="337" y="186" width="28" height="28" rx="2"/>
-    <circle cx="351" cy="200" r="6"/>
+    <!-- Bottom — center y = 200 + 141 + 14 = 355 -->
+    <rect x="186" y="341" width="28" height="28" rx="2"/>
+    <circle cx="200" cy="355" r="6"/>
 
-    <!-- Lower-right — center 311,311 -->
-    <rect x="297" y="297" width="28" height="28" rx="2" transform="rotate(-45 311 311)"/>
-    <circle cx="311" cy="311" r="6"/>
+    <!-- Left — center x = 200 - 141 - 14 = 45 -->
+    <rect x="31" y="186" width="28" height="28" rx="2"/>
+    <circle cx="45" cy="200" r="6"/>
 
-    <!-- Bottom — center 200,351 — top edge at y=337 overlaps ring bottom y=339 by 2px -->
-    <rect x="186" y="337" width="28" height="28" rx="2"/>
-    <circle cx="200" cy="351" r="6"/>
+    <!-- Diagonal squares: after 45° rotation, nearest corner overlaps ring at 137.
+         Square center at distance 150.5 from gear center. -->
+    
+    <!-- Upper-right — center: 200+106=306, 200-106=94 -->
+    <rect x="292" y="80" width="28" height="28" rx="2" transform="rotate(45 306 94)"/>
+    <circle cx="306" cy="94" r="6"/>
 
-    <!-- Lower-left — center 89,311 -->
-    <rect x="75" y="297" width="28" height="28" rx="2" transform="rotate(45 89 311)"/>
-    <circle cx="89" cy="311" r="6"/>
+    <!-- Lower-right — center: 200+106=306, 200+106=306 -->
+    <rect x="292" y="292" width="28" height="28" rx="2" transform="rotate(-45 306 306)"/>
+    <circle cx="306" cy="306" r="6"/>
 
-    <!-- Left — center 49,200 — right edge at x=63 overlaps ring left x=61 by 2px -->
-    <rect x="35" y="186" width="28" height="28" rx="2"/>
-    <circle cx="49" cy="200" r="6"/>
+    <!-- Lower-left — center: 200-106=94, 200+106=306 -->
+    <rect x="80" y="292" width="28" height="28" rx="2" transform="rotate(45 94 306)"/>
+    <circle cx="94" cy="306" r="6"/>
 
-    <!-- Upper-left — center 89,89 -->
-    <rect x="75" y="75" width="28" height="28" rx="2" transform="rotate(-45 89 89)"/>
-    <circle cx="89" cy="89" r="6"/>
+    <!-- Upper-left — center: 200-106=94, 200-106=94 -->
+    <rect x="80" y="80" width="28" height="28" rx="2" transform="rotate(-45 94 94)"/>
+    <circle cx="94" cy="94" r="6"/>
 
-    <!-- 8 spokes from center hub (r=24) to inner ring edge (r=121) -->
+    <!-- 8 spokes from center to inner ring edge (r=121) -->
     <line x1="200" y1="79" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
     <line x1="79" y1="200" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
     <line x1="200" y1="321" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
