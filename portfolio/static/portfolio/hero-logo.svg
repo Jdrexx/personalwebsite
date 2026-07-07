@@ -1,51 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <rect width="400" height="400" fill="#05070c" rx="40"/>
   <g fill="#2dd4bf">
-    <!-- Outer ring (radius 130, stroke 18 → outer edge at 139) -->
+    <!-- Outer ring (radius 130, stroke 18 → outer edge at 139, inner at 121) -->
     <circle cx="200" cy="200" r="130" fill="none" stroke="#2dd4bf" stroke-width="18"/>
 
-    <!-- 8 square pedestals (28×28, sharp corners) centered 153 from hub, touching ring -->
-    <!-- Top (0°) — center 200,47 -->
-    <rect x="186" y="33" width="28" height="28" rx="2"/>
-    <circle cx="200" cy="47" r="6"/>
+    <!-- 8 square pedestals — each overlapping ring by 2px to eliminate anti-alias gaps -->
+    <!-- Top — center 200,49 — bottom at y=63 overlaps ring top y=61 by 2px -->
+    <rect x="186" y="35" width="28" height="28" rx="2"/>
+    <circle cx="200" cy="49" r="6"/>
 
-    <!-- Upper-right (45°) — center 308,92 -->
-    <rect x="294" y="78" width="28" height="28" rx="2" transform="rotate(45 308 92)"/>
-    <circle cx="308" cy="92" r="6"/>
+    <!-- Upper-right — center 311,89 — corner overlaps ring outer edge -->
+    <rect x="297" y="75" width="28" height="28" rx="2" transform="rotate(45 311 89)"/>
+    <circle cx="311" cy="89" r="6"/>
 
-    <!-- Right (90°) — center 353,200 -->
-    <rect x="339" y="186" width="28" height="28" rx="2"/>
-    <circle cx="353" cy="200" r="6"/>
+    <!-- Right — center 351,200 — left edge at x=337 overlaps ring right x=339 by 2px -->
+    <rect x="337" y="186" width="28" height="28" rx="2"/>
+    <circle cx="351" cy="200" r="6"/>
 
-    <!-- Lower-right (135°) — center 308,308 -->
-    <rect x="294" y="294" width="28" height="28" rx="2" transform="rotate(-45 308 308)"/>
-    <circle cx="308" cy="308" r="6"/>
+    <!-- Lower-right — center 311,311 -->
+    <rect x="297" y="297" width="28" height="28" rx="2" transform="rotate(-45 311 311)"/>
+    <circle cx="311" cy="311" r="6"/>
 
-    <!-- Bottom (180°) — center 200,353 -->
-    <rect x="186" y="339" width="28" height="28" rx="2"/>
-    <circle cx="200" cy="353" r="6"/>
+    <!-- Bottom — center 200,351 — top edge at y=337 overlaps ring bottom y=339 by 2px -->
+    <rect x="186" y="337" width="28" height="28" rx="2"/>
+    <circle cx="200" cy="351" r="6"/>
 
-    <!-- Lower-left (225°) — center 92,308 -->
-    <rect x="78" y="294" width="28" height="28" rx="2" transform="rotate(45 92 308)"/>
-    <circle cx="92" cy="308" r="6"/>
+    <!-- Lower-left — center 89,311 -->
+    <rect x="75" y="297" width="28" height="28" rx="2" transform="rotate(45 89 311)"/>
+    <circle cx="89" cy="311" r="6"/>
 
-    <!-- Left (270°) — center 47,200 -->
-    <rect x="33" y="186" width="28" height="28" rx="2"/>
-    <circle cx="47" cy="200" r="6"/>
+    <!-- Left — center 49,200 — right edge at x=63 overlaps ring left x=61 by 2px -->
+    <rect x="35" y="186" width="28" height="28" rx="2"/>
+    <circle cx="49" cy="200" r="6"/>
 
-    <!-- Upper-left (315°) — center 92,92 -->
-    <rect x="78" y="78" width="28" height="28" rx="2" transform="rotate(-45 92 92)"/>
-    <circle cx="92" cy="92" r="6"/>
+    <!-- Upper-left — center 89,89 -->
+    <rect x="75" y="75" width="28" height="28" rx="2" transform="rotate(-45 89 89)"/>
+    <circle cx="89" cy="89" r="6"/>
 
-    <!-- 8 spokes from center to ring -->
-    <line x1="200" y1="87" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
-    <line x1="108" y1="200" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
-    <line x1="200" y1="313" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
-    <line x1="292" y1="200" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
-    <line x1="135" y1="135" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
-    <line x1="265" y1="135" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
-    <line x1="135" y1="265" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
-    <line x1="265" y1="265" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
+    <!-- 8 spokes from center hub (r=24) to inner ring edge (r=121) -->
+    <line x1="200" y1="79" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
+    <line x1="79" y1="200" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
+    <line x1="200" y1="321" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
+    <line x1="321" y1="200" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
+    <line x1="286" y1="114" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
+    <line x1="286" y1="286" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
+    <line x1="114" y1="286" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
+    <line x1="114" y1="114" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
 
     <!-- Central hub -->
     <circle cx="200" cy="200" r="24"/>
