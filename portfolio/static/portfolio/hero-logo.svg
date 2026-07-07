@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#05070c" rx="40"/>
+  
+  <!-- Gear/Wheel icon in teal #2dd4bf -->
+  <g fill="#2dd4bf">
+    <!-- Outer ring with 8 teeth -->
+    <!-- The outer ring body (circle with a hole) -->
+    <path d="
+      M 200 40
+      A 160 160 0 0 0 82.5 317.5
+      L 103 297
+      A 130 130 0 0 1 200 70
+      Z
+    "/>
+    
+    <!-- 8 teeth with rounded knobs at tips -->
+    <!-- Tooth at top (0°) -->
+    <rect x="185" y="35" width="30" height="35" rx="4"/>
+    <circle cx="200" cy="28" r="8"/>
+    
+    <!-- Tooth at upper-right (45°) -->
+    <rect x="249" y="57" width="30" height="35" rx="4" transform="rotate(45, 264, 74)"/>
+    <circle cx="269" cy="48" r="8"/>
+    
+    <!-- Tooth at right (90°) -->
+    <rect x="330" y="185" width="35" height="30" rx="4"/>
+    <circle cx="372" cy="200" r="8"/>
+    
+    <!-- Tooth at lower-right (135°) -->
+    <rect x="249" y="308" width="30" height="35" rx="4" transform="rotate(-45, 264, 325)"/>
+    <circle cx="269" cy="352" r="8"/>
+    
+    <!-- Tooth at bottom (180°) -->
+    <rect x="185" y="330" width="30" height="35" rx="4"/>
+    <circle cx="200" cy="372" r="8"/>
+    
+    <!-- Tooth at lower-left (225°) -->
+    <rect x="121" y="308" width="30" height="35" rx="4" transform="rotate(45, 136, 325)"/>
+    <circle cx="131" cy="352" r="8"/>
+    
+    <!-- Tooth at left (270°) -->
+    <rect x="35" y="185" width="35" height="30" rx="4"/>
+    <circle cx="28" cy="200" r="8"/>
+    
+    <!-- Tooth at upper-left (315°) -->
+    <rect x="121" y="57" width="30" height="35" rx="4" transform="rotate(-45, 136, 74)"/>
+    <circle cx="131" cy="48" r="8"/>
+    
+    <!-- Outer ring circle (full circle with cutout center) -->
+    <circle cx="200" cy="200" r="130" fill="none" stroke="#2dd4bf" stroke-width="18"/>
+    
+    <!-- 8 spokes from center to inner edge of outer ring -->
+    <line x1="200" y1="88" x2="200" y2="200" stroke="#2dd4bf" stroke-width="14"/>
+    <line x1="108" y1="200" x2="200" y2="200" stroke="#2dd4bf" stroke-width="14"/>
+    <line x1="200" y1="312" x2="200" y2="200" stroke="#2dd4bf" stroke-width="14"/>
+    <line x1="292" y1="200" x2="200" y2="200" stroke="#2dd4bf" stroke-width="14"/>
+    
+    <line x1="135" y1="135" x2="200" y2="200" stroke="#2dd4bf" stroke-width="14"/>
+    <line x1="265" y1="135" x2="200" y2="200" stroke="#2dd4bf" stroke-width="14"/>
+    <line x1="135" y1="265" x2="200" y2="200" stroke="#2dd4bf" stroke-width="14"/>
+    <line x1="265" y1="265" x2="200" y2="200" stroke="#2dd4bf" stroke-width="14"/>
+    
+    <!-- Central hub -->
+    <circle cx="200" cy="200" r="28"/>
+  </g>
+</svg>
