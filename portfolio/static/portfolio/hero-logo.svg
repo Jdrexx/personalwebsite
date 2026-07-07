@@ -1,45 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
-  <!-- Background -->
   <rect width="400" height="400" fill="#05070c" rx="40"/>
-  
   <g fill="#2dd4bf">
-    <!-- Outer ring -->
+    <!-- Outer ring (radius 130, stroke 18 → outer edge at 139) -->
     <circle cx="200" cy="200" r="130" fill="none" stroke="#2dd4bf" stroke-width="18"/>
-    
-    <!-- 8 square pedestals with centered circles -->
-    <!-- Top (0°) -->
-    <rect x="186" y="42" width="28" height="28" rx="5"/>
-    <circle cx="200" cy="56" r="10"/>
-    
-    <!-- Upper-right (45°) -->
-    <rect x="271" y="57" width="28" height="28" rx="5" transform="rotate(45, 285, 71)"/>
-    <circle cx="298" cy="56" r="10"/>
-    
-    <!-- Right (90°) -->
-    <rect x="330" y="186" width="28" height="28" rx="5"/>
-    <circle cx="344" cy="200" r="10"/>
-    
-    <!-- Lower-right (135°) -->
-    <rect x="271" y="315" width="28" height="28" rx="5" transform="rotate(-45, 285, 329)"/>
-    <circle cx="298" cy="344" r="10"/>
-    
-    <!-- Bottom (180°) -->
-    <rect x="186" y="330" width="28" height="28" rx="5"/>
-    <circle cx="200" cy="344" r="10"/>
-    
-    <!-- Lower-left (225°) -->
-    <rect x="101" y="315" width="28" height="28" rx="5" transform="rotate(45, 115, 329)"/>
-    <circle cx="102" cy="344" r="10"/>
-    
-    <!-- Left (270°) -->
-    <rect x="42" y="186" width="28" height="28" rx="5"/>
-    <circle cx="56" cy="200" r="10"/>
-    
-    <!-- Upper-left (315°) -->
-    <rect x="101" y="57" width="28" height="28" rx="5" transform="rotate(-45, 115, 71)"/>
-    <circle cx="102" cy="56" r="10"/>
-    
-    <!-- 8 spokes from center to outer ring -->
+
+    <!-- 8 square pedestals (28×28, sharp corners) centered 153 from hub, touching ring -->
+    <!-- Top (0°) — center 200,47 -->
+    <rect x="186" y="33" width="28" height="28" rx="2"/>
+    <circle cx="200" cy="47" r="6"/>
+
+    <!-- Upper-right (45°) — center 308,92 -->
+    <rect x="294" y="78" width="28" height="28" rx="2" transform="rotate(45 308 92)"/>
+    <circle cx="308" cy="92" r="6"/>
+
+    <!-- Right (90°) — center 353,200 -->
+    <rect x="339" y="186" width="28" height="28" rx="2"/>
+    <circle cx="353" cy="200" r="6"/>
+
+    <!-- Lower-right (135°) — center 308,308 -->
+    <rect x="294" y="294" width="28" height="28" rx="2" transform="rotate(-45 308 308)"/>
+    <circle cx="308" cy="308" r="6"/>
+
+    <!-- Bottom (180°) — center 200,353 -->
+    <rect x="186" y="339" width="28" height="28" rx="2"/>
+    <circle cx="200" cy="353" r="6"/>
+
+    <!-- Lower-left (225°) — center 92,308 -->
+    <rect x="78" y="294" width="28" height="28" rx="2" transform="rotate(45 92 308)"/>
+    <circle cx="92" cy="308" r="6"/>
+
+    <!-- Left (270°) — center 47,200 -->
+    <rect x="33" y="186" width="28" height="28" rx="2"/>
+    <circle cx="47" cy="200" r="6"/>
+
+    <!-- Upper-left (315°) — center 92,92 -->
+    <rect x="78" y="78" width="28" height="28" rx="2" transform="rotate(-45 92 92)"/>
+    <circle cx="92" cy="92" r="6"/>
+
+    <!-- 8 spokes from center to ring -->
     <line x1="200" y1="87" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
     <line x1="108" y1="200" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
     <line x1="200" y1="313" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
@@ -48,7 +46,7 @@
     <line x1="265" y1="135" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
     <line x1="135" y1="265" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
     <line x1="265" y1="265" x2="200" y2="200" stroke="#2dd4bf" stroke-width="12"/>
-    
+
     <!-- Central hub -->
     <circle cx="200" cy="200" r="24"/>
   </g>
