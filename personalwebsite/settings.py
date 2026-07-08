@@ -3,18 +3,25 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# ── Secret Key ─────────────────────────────────────────────────────────────
-# Must be set via environment variable in production. Falls back to a dev
-# key when unset — Django's system check framework (check --deploy) will
-# flag this as a warning in production.
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-key-do-not-use-in-production')
-
+# ── Debug & Allowed Hosts ──────────────────────────────────────────────────
 DEBUG = os.environ.get('DJANGO_DEBUG', '0') == '1'
 ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
     if host.strip()
 ]
+
+# ── Secret Key ─────────────────────────────────────────────────────────────
+# Must be set via environment variable in production. Falls back to a dev
+# key when unset — this WILL raise RuntimeError if DEBUG=False and the key
+# is missing (prevents silent session forgery in production).
+_django_secret_key = os.environ.get('DJANGO_SECRET_KEY')
+if not DEBUG and not _django_secret_key:
+    raise RuntimeError(
+        "DJANGO_SECRET_KEY must be set when DEBUG=False. "
+        "Generate one with: python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'"
+    )
+SECRET_KEY = _django_secret_key or 'dev-key-do-not-use-in-production'
 
 # ── Installed Apps ─────────────────────────────────────────────────────────
 INSTALLED_APPS = [
@@ -37,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'personalwebsite.middleware.SecurityHeadersMiddleware',
 ]
 
 ROOT_URLCONF = 'personalwebsite.urls'
@@ -90,6 +98,12 @@ db_pass = (
     ''
 )
 
+if db_host and not db_pass:
+    raise RuntimeError(
+        "Database password must be set when using MySQL/MariaDB. "
+        "Set MARIADB_PASSWORD or MYSQL_PASSWORD environment variable."
+    )
+
 if db_host:
     DATABASES = {
         'default': {
@@ -135,7 +149,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # ── Production Security (env-gated) ────────────────────────────────────────
 if not DEBUG:
-    SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL', '0') == '1'
+    SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL', '1') == '1'
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = int(os.environ.get('DJANGO_HSTS_SECONDS', '31536000'))
@@ -150,3 +164,8 @@ if not DEBUG:
     ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ── Admin Panel ────────────────────────────────────────────────────────────
+# Admin is disabled by default to reduce attack surface.
+# Set DJANGO_ENABLE_ADMIN=1 in the environment to enable /admin/.
+ADMIN_ENABLED = os.environ.get('DJANGO_ENABLE_ADMIN', '0') == '1'

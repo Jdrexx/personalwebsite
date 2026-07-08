@@ -125,7 +125,14 @@
     var cmd = input.value.trim().toLowerCase();
     var line = document.createElement('div');
     line.className = 'terminal-line';
-    line.innerHTML = '<span class="prompt">jon@portfolio:~$</span> <span class="cmd">' + cmd + '</span>';
+    var promptSpan = document.createElement('span');
+    promptSpan.className = 'prompt';
+    promptSpan.textContent = 'jon@portfolio:~$';
+    var cmdSpan = document.createElement('span');
+    cmdSpan.className = 'cmd';
+    cmdSpan.textContent = cmd;
+    line.appendChild(promptSpan);
+    line.appendChild(cmdSpan);
     output.appendChild(line);
 
     var resp = document.createElement('div');
