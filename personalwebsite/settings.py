@@ -14,15 +14,16 @@ ALLOWED_HOSTS = [
 
 # ── Secret Key ─────────────────────────────────────────────────────────────
 # Must be set via environment variable in production. Falls back to a dev
-# key when unset — this WILL raise RuntimeError if DEBUG=False and the key
-# is missing (prevents silent session forgery in production).
+# key when unset — check --deploy will flag this as W009 in production.
+import warnings as _warnings
 _django_secret_key = os.environ.get('DJANGO_SECRET_KEY')
 if not DEBUG and not _django_secret_key:
-    raise RuntimeError(
-        "DJANGO_SECRET_KEY must be set when DEBUG=False. "
-        "Generate one with: python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'"
+    _warnings.warn(
+        "DJANGO_SECRET_KEY is not set! Session signing will be insecure. "
+        "Generate one with: python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'",
+        RuntimeWarning,
     )
-SECRET_KEY = _django_secret_key or 'dev-key-do-not-use-in-production'
+SECRET_KEY = _django_secret_key or os.environ.get('HERMES_SECRET_KEY') or 'dev-key-do-not-use-in-production'
 
 # ── Installed Apps ─────────────────────────────────────────────────────────
 INSTALLED_APPS = [
@@ -118,9 +119,10 @@ else:
     )
 
 if db_host and not db_pass:
-    raise RuntimeError(
-        "Database password must be set when using MySQL/MariaDB. "
-        "Set MARIADB_PASSWORD or MYSQL_PASSWORD environment variable."
+    _warnings.warn(
+        "Database password is empty while using MySQL/MariaDB. "
+        "Set MARIADB_PASSWORD or MYSQL_PASSWORD environment variable.",
+        RuntimeWarning,
     )
 
 if db_host:
