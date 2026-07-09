@@ -14,19 +14,21 @@ SITE_CONTENT = {
     'github': 'https://github.com/Jdrexx',
     'headline': 'Technical Project Manager',
     'tagline': (
-        'I combine hands-on AI agent development, API integration, and workflow '
-        'automation with project leadership and operations experience to help '
-        'teams ship faster, reduce manual overhead, and adopt technology that sticks.'
-    ),
+            'I combine hands-on AI agent development, API integration, and workflow '
+            'automation with project leadership, customer success, and operations '
+            'experience to help teams ship faster, reduce manual overhead, and adopt '
+            'technology that sticks.'
+        ),
     'summary': (
         'Technical Project Manager with a Computer Science degree and 4+ years '
         'of cross-industry experience delivering technology-driven process improvements, '
         'workflow automations, and system integrations. Hands-on experience with LLM-based '
         'tools, API integrations, agent frameworks, and automation platforms. Proven ability '
-        'to rapidly master new domains, bridge technical and business teams, and deploy '
-        'software solutions that drive measurable efficiency gains. Background in project '
-        'management, software rollouts, data systems, and compliance — with a focus on '
-        'security, governance, and responsible AI adoption.'
+        'to rapidly master new domains, bridge technical and business teams, drive customer '
+        'success, and deploy software solutions that drive measurable efficiency gains. '
+        'Background in project management, software rollouts, data systems, customer '
+        'experience, and compliance — with a focus on security, governance, and responsible '
+        'AI adoption.'
     ),
     'cta': {
         'primary_label': 'View Projects',
