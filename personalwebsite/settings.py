@@ -166,6 +166,8 @@ if not DEBUG:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ── Admin Panel ────────────────────────────────────────────────────────────
-# Admin is disabled by default to reduce attack surface.
-# Set DJANGO_ENABLE_ADMIN=1 in the environment to enable /admin/.
-ADMIN_ENABLED = os.environ.get('DJANGO_ENABLE_ADMIN', '0') == '1'
+# Admin is disabled by default. To enable, set DJANGO_ADMIN_URL in the
+# environment to a secret path (e.g. "mysecretadmin"). Admin will be
+# accessible at /mysecretadmin/ instead of /admin/. This hides the login
+# page from scanners and bots while keeping it accessible to you.
+ADMIN_URL = os.environ.get('DJANGO_ADMIN_URL', '')
