@@ -354,6 +354,9 @@ h3 { font-size: 1.1rem; font-weight: 600; }
 .form-success { text-align: center; padding: 60px 20px; }
 .form-success p { font-size: 1.15rem; margin-bottom: 24px; color: var(--text-dim); }
 
+/* Honeypot anti-spam field — hidden from humans, visible to bots */
+.honeypot { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+
 /* ── Skill icons ──────────────────────────────────────────────────── */
 .skill-item::before {
   display: inline-block; margin-right: 4px; font-size: 0.8rem;
