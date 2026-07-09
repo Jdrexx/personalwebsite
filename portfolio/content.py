@@ -63,7 +63,7 @@ SITE_CONTENT = {
     'skills': [
         'AI Automation & Workflow Design', 'Agent-Based Solutions', 'API Integration',
         'Process Automation', 'Systems Integration', 'Project Management',
-        'Risk Management', 'Change Management', 'Stakeholder Communication',
+        'Risk Management', 'Change Management', 'Stakeholder Communication', 'Customer Success Management',
         'Process Optimization', 'AI Governance & Security', 'Quality Control',
         'Budget Management', 'Claude', 'Hermes', 'OpenAI API',
         'MCP / Tool-Calling Frameworks', 'Python', 'Django', 'GitHub', 'Ubuntu',
