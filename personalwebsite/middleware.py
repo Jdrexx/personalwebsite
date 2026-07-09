@@ -23,7 +23,7 @@ class SecurityHeadersMiddleware:
             "style-src 'self' https://fonts.googleapis.com;"
             "font-src 'self' https://fonts.gstatic.com;"
             "img-src 'self' data:;"
-            "form-action https://formspree.io;"
+            "form-action 'self' https://formspree.io;"
             "base-uri 'self';"
             "frame-ancestors 'none';"
         )
