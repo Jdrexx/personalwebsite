@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from urllib.parse import urlparse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -67,36 +68,54 @@ TEMPLATES = [
 WSGI_APPLICATION = 'personalwebsite.wsgi.application'
 
 # ── Database ───────────────────────────────────────────────────────────────
-db_host = (
-    os.environ.get('MARIADB_PRIVATE_HOST') or
-    os.environ.get('MYSQL_HOST') or
-    os.environ.get('MYSQLHOST') or
-    ''
-)
-db_port = (
-    os.environ.get('MARIADB_PRIVATE_PORT') or
-    os.environ.get('MYSQL_PORT') or
-    os.environ.get('MYSQLPORT') or
-    '3306'
-)
-db_name = (
-    os.environ.get('MARIADB_DATABASE') or
-    os.environ.get('MYSQL_DATABASE') or
-    os.environ.get('MYSQLDATABASE') or
-    'railway'
-)
-db_user = (
-    os.environ.get('MARIADB_USER') or
-    os.environ.get('MYSQL_USER') or
-    os.environ.get('MYSQLUSER') or
-    'root'
-)
-db_pass = (
-    os.environ.get('MARIADB_PASSWORD') or
-    os.environ.get('MYSQL_PASSWORD') or
-    os.environ.get('MYSQLPASSWORD') or
-    ''
-)
+# Priority: full URL (Railway standard) → individual env vars → SQLite fallback
+_db_url = os.environ.get('MYSQL_URL') or os.environ.get('MARIADB_URL') or ''
+
+if _db_url:
+    _parsed = urlparse(_db_url)
+    db_host = _parsed.hostname or ''
+    try:
+        db_port = int(_parsed.port) if _parsed.port else 3306
+    except (ValueError, TypeError):
+        db_port = 3306
+    db_name = _parsed.path.lstrip('/') if _parsed.path else 'railway'
+    db_user = _parsed.username or 'root'
+    db_pass = _parsed.password or ''
+else:
+    db_host = (
+        os.environ.get('MARIADB_PRIVATE_HOST') or
+        os.environ.get('MYSQL_HOST') or
+        os.environ.get('MYSQLHOST') or
+        ''
+    )
+    db_port_raw = (
+        os.environ.get('MARIADB_PRIVATE_PORT') or
+        os.environ.get('MYSQL_PORT') or
+        os.environ.get('MYSQLPORT') or
+        '3306'
+    )
+    try:
+        db_port = int(db_port_raw)
+    except (ValueError, TypeError):
+        db_port = 3306
+    db_name = (
+        os.environ.get('MARIADB_DATABASE') or
+        os.environ.get('MYSQL_DATABASE') or
+        os.environ.get('MYSQLDATABASE') or
+        'railway'
+    )
+    db_user = (
+        os.environ.get('MARIADB_USER') or
+        os.environ.get('MYSQL_USER') or
+        os.environ.get('MYSQLUSER') or
+        'root'
+    )
+    db_pass = (
+        os.environ.get('MARIADB_PASSWORD') or
+        os.environ.get('MYSQL_PASSWORD') or
+        os.environ.get('MYSQLPASSWORD') or
+        ''
+    )
 
 if db_host and not db_pass:
     raise RuntimeError(
