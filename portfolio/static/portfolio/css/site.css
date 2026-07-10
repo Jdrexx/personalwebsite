@@ -165,6 +165,7 @@ h3 { font-size: 1.1rem; font-weight: 600; }
 .blob-4 { width: 280px; height: 280px; background: radial-gradient(circle, var(--accent), transparent); position: relative; margin: 0 auto; animation: float 11s ease-in-out infinite; }
 .blob-sm { width: 120px; height: 120px; background: radial-gradient(circle, var(--accent), transparent); position: relative; margin: 0 auto; opacity: 0.2; animation: float 9s ease-in-out infinite; }
 .blob-portrait { width: 200px; height: 200px; background: radial-gradient(circle at 30% 30%, var(--accent), #38bdf8); position: relative; margin: 0 auto; opacity: 0.2; animation: float 10s ease-in-out infinite; }
+.resume-photo { display: block; width: 100%; max-width: 220px; height: auto; border-radius: 50%; aspect-ratio: 1; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 0 30px var(--accent-dim); }
 
 @keyframes float {
   0%, 100% { transform: translateY(0) scale(1); }
