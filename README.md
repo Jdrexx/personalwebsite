@@ -71,6 +71,8 @@ personalwebsite/
 ├── manage.py
 ├── requirements.txt
 ├── Procfile                  # Railway deployment config
+├── docs/                     # Documentation
+│   └── SECURITY.md           # Security profile & audit history
 ├── portfolio/                # Main Django app
 │   ├── content.py            # All editable site content
 │   ├── views.py              # Home / projects / resume views
@@ -126,11 +128,16 @@ web: python manage.py collectstatic --noinput && gunicorn personalwebsite.wsgi -
 
 ### Required Environment Variables
 
-| Variable             | Description                          |
-| -------------------- | ------------------------------------ |
-| `DJANGO_SECRET_KEY`  | Django secret key (required in prod) |
-| `DJANGO_ALLOWED_HOSTS` | Comma-separated hostnames         |
-| `DJANGO_DEBUG`       | Set to `1` for debug (omit in prod)  |
+| Variable             | Description                          | Required |
+| -------------------- | ------------------------------------ | -------- |
+| `DJANGO_SECRET_KEY`  | Django secret key                    | **Yes** (production) |
+| `DJANGO_ALLOWED_HOSTS` | Comma-separated hostnames         | Yes |
+| `DJANGO_DEBUG`       | Set to `1` for debug (omit for prod) | No |
+
+> **Important:** In production, `DJANGO_SECRET_KEY` **must** be set to a secure random value. If omitted, the app will refuse to start with a clear error message. Generate one with:
+> ```bash
+> python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+> ```
 
 For MySQL on Railway, set any of the standard Railway MySQL environment variables (e.g. `MYSQLHOST`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLDATABASE`). If none are set, the site falls back to SQLite.
 
