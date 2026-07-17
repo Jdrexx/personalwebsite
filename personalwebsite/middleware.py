@@ -4,10 +4,10 @@
 class SecurityHeadersMiddleware:
     """Adds Content-Security-Policy and Permissions-Policy headers.
 
-    CSP uses 'unsafe-inline' for scripts because the site has inline
-    scripts for theme toggling, terminal, counters, and JSON-LD injection.
-    Long-term improvement: move all inline scripts to static JS files
-    so 'unsafe-inline' can be removed.
+    CSP uses 'unsafe-inline' because the site has inline scripts
+    for theme toggling, terminal widget, and JSON-LD injection.
+    If those are ever extracted to static files, 'unsafe-inline'
+    can be dropped.
     """
 
     def __init__(self, get_response):

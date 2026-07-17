@@ -3,85 +3,51 @@
 [![Django](https://img.shields.io/badge/Django-5.2-092E20?logo=django&logoColor=white)](https://www.djangoproject.com/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
-A personal portfolio website built with Django 5.2. Dark theme, responsive layout, editable content isolated from templates. Designed for Railway deployment via Gunicorn and WhiteNoise.
+Personal portfolio site — Django 5.2, dark/light theme, teal accent, responsive. Deployed on Railway.
 
-## Features
+## Quick start
 
-- Home page with headline, tagline, focus areas, and CTAs
-- Projects page — six showcased projects with descriptions and GitHub links
-- Resume page — full work experience timeline with role details
-- Contact section in the footer
-- All site copy in `portfolio/content.py` — no template edits needed for text updates
-- Responsive dark theme (teal accent, greys, blacks)
-- SQLite by default, MySQL via env vars in production
-
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Framework | Django 5.2 |
-| Language | Python 3.12+ |
-| Frontend | HTML5, CSS3 (custom, responsive) |
-| Server | Gunicorn |
-| Static | WhiteNoise |
-| Database | SQLite (dev) / MySQL (production via Railway) |
-| Deploy | Railway |
-
-## Quick Start
-
-```bash
+```
 git clone https://github.com/Jdrexx/personalwebsite.git
 cd personalwebsite
 python -m venv .venv
-source .venv/bin/activate   # macOS/Linux
+source .venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
-    cd /tmp/personalwebsite && source .venv/bin/activate && DJANGO_DEBUG=1 python manage.py runserver 8765
-
 
 Open http://127.0.0.1:8000
 
-## Project Structure
+## Editing content
 
-```
-personalwebsite/
-├── manage.py
-├── requirements.txt
-├── Procfile                  # Railway deployment
-├── portfolio/                # Main Django app
-│   ├── content.py            # All editable site content
-│   ├── views.py              # Home/projects/resume views
-│   ├── urls.py
-│   ├── templates/portfolio/  # HTML templates
-│   └── static/portfolio/css/ # Stylesheets
-└── personalwebsite/          # Django project settings
-```
-
-## Editing Content
-
-All portfolio text, resume sections, skills, and project cards live in:
+Everything visible on the page (tagline, resume bullets, project descriptions, case studies) lives in one file:
 
 ```
 portfolio/content.py
 ```
 
-Update the `SITE_CONTENT` dictionary to change text without touching templates or views. Styling is in `portfolio/static/portfolio/css/site.css`.
+Change text there — no template edits needed. Styling is in `portfolio/static/portfolio/css/site.css`.
 
-## Deployment (Railway)
+## Deployment
 
-Configured for one-click deploy. Procfile handles migrations and Gunicorn start.
+Deploys to Railway via git push. Requires two env vars:
 
-Required env vars: `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS`.
-Set `DJANGO_DEBUG=1` for dev only.
+- `DJANGO_SECRET_KEY` — generate with `python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'`
+- `DJANGO_ALLOWED_HOSTS` — comma-separated (production domain)
+
+Optional: `DJANGO_DEBUG=1` for local dev, `DJANGO_ADMIN_URL=<secret-path>` to gate admin behind a non-standard URL.
+
+## Known quirks
+
+- Admin is disabled by default. Set `DJANGO_ADMIN_URL` to something random and it activates at `/<that-value>/`.
+- The contact form POSTs to Formspree. Works without a backend SMTP setup but your free Formspree plan has a monthly cap.
+- CSP uses `'unsafe-inline'` for scripts. The inline JS powers the terminal widget and theme toggle. If those get extracted to static files someday I'll tighten it.
 
 ## Tests
 
-```bash
+```
 python manage.py test
 ```
 
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
+MIT license.

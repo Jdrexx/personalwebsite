@@ -14,21 +14,19 @@ SITE_CONTENT = {
     'github': 'https://github.com/Jdrexx',
     'headline': 'Technical Project Manager',
     'tagline': (
-            'I combine hands-on AI agent development, API integration, and workflow '
-            'automation with project leadership, customer success, and operations '
-            'experience to help teams ship faster, reduce manual overhead, and adopt '
-            'technology that sticks.'
-        ),
+        'I build AI agent tools and automation systems, and I manage the '
+        'projects that get them into production. API integrations, workflow '
+        'pipelines, Django apps — whatever actually helps a team stop doing '
+        'things by hand.'
+    ),
     'summary': (
         'Technical Project Manager with a Computer Science degree and 4+ years '
-        'of cross-industry experience delivering technology-driven process improvements, '
-        'workflow automations, and system integrations. Hands-on experience with LLM-based '
-        'tools, API integrations, agent frameworks, and automation platforms. Proven ability '
-        'to rapidly master new domains, bridge technical and business teams, drive customer '
-        'success, and deploy software solutions that drive measurable efficiency gains. '
-        'Background in project management, software rollouts, data systems, customer '
-        'experience, and compliance — with a focus on security, governance, and responsible '
-        'AI adoption.'
+        'of experience bridging technical delivery and business outcomes. I\'ve '
+        'led software rollouts, built automation workflows, managed multi-stakeholder '
+        'construction projects, and worked across industries from edtech to AV '
+        'installation. My background covers project management, customer success, '
+        'data systems, and compliance — with a practical focus on security and '
+        'governance rather than buzzwords.'
     ),
     'cta': {
         'primary_label': 'View Projects',
@@ -38,7 +36,7 @@ SITE_CONTENT = {
     },
     'status': {
         'emoji': '⚡',
-        'text': 'Currently: building AI workflow pipelines and automation systems',  # ← update this line to change what appears in the status bar
+        'text': 'Building AI workflow pipelines and automation systems',
         'link': '/projects/',
         'link_label': 'See what I build',
     },
@@ -51,15 +49,15 @@ SITE_CONTENT = {
     'focus_areas': [
         {
             'title': 'AI Automation & Workflow Design',
-            'description': 'LLM-based tools, agent frameworks, API integrations, and automated pipelines that reduce manual overhead and improve accuracy.',
+            'description': 'Agent frameworks, API integrations, and pipelines that automate the repetitive stuff so teams focus on work that matters.',
         },
         {
             'title': 'Systems Integration & Development',
-            'description': 'Responsive websites, Django/Python applications, MCP tool-calling systems, and clean data workflows across platforms.',
+            'description': 'Full-stack Django sites, MCP tool-calling systems, and data pipelines that connect platforms instead of living in silos.',
         },
         {
             'title': 'Project Management & Operations',
-            'description': 'Scheduling, stakeholder coordination, budget tracking, risk mitigation, process redesign, and change management.',
+            'description': 'Scheduling, budgets, stakeholder coordination, risk tracking, process redesign — the boring stuff that makes or breaks a project.',
         },
     ],
     'skills': [
@@ -141,159 +139,148 @@ SITE_CONTENT = {
     'projects': [
         {
             'name': 'ArchPlanReview',
-            'description': 'Reviews architectural plans and lets users search plan documents more easily.',
+            'description': 'Lets you search architectural plan documents by room, fixture, or spec instead of flipping through PDFs.',
             'tech': ['Python', 'Document Search', 'Plan Review'],
             'url': 'https://github.com/Jdrexx/ArchPlanReview',
             'status': 'active',
-            'details': 'A search engine for architectural plan documents. Users upload or reference plan sets and query them by room, fixture, dimension, or specification. Built with Python, focused on making construction documentation accessible to non-experts.',
+            'details': 'A search engine for architectural plan documents. Upload or reference plan sets and query them by room, fixture, dimension, or specification.',
             'case_study': {
-                'problem': 'Architectural plans are dense, hard to navigate, and scattered across PDFs. Finding a specific room dimension, fixture spec, or notation means manually flipping through pages of blueprints — slow and error-prone for project managers and contractors.',
+                'problem': 'Architectural plans are dense PDFs full of rooms, dimensions, and fixture callouts. Finding one spec means flipping through pages of blueprints — project managers and contractors do this constantly and it\'s slow.',
                 'steps': [
-                    {'title': 'Upload plans', 'desc': 'Upload architectural plan PDFs or reference existing plan sets. Each document is parsed and stored with project metadata.'},
-                    {'title': 'Index rooms & fixtures', 'desc': 'Text is extracted and structured into searchable passages keyed by room, fixture, dimension, and specification. Every result links back to its source plan page.'},
-                    {'title': 'Search naturally', 'desc': 'Type queries like "conference room dimensions" or "third-floor electrical specs" and get relevant passages with source citations.'},
+                    {'title': 'Upload or reference plans', 'desc': 'Drop in PDF plan sets. The system parses each document and links it to project metadata so you always know which revision you\'re searching.'},
+                    {'title': 'Index rooms, fixtures, and specs', 'desc': 'Text extraction pulls room names, dimensions, fixture labels, and callouts into searchable passages. Every result links back to its source page.'},
+                    {'title': 'Search naturally or by spec', 'desc': 'Type "conference room dimensions" or "third-floor electrical specs" — both work. Keyword matching handles exact numbers, semantic search covers natural language.'},
+                    {'title': 'Compare revisions', 'desc': 'When plans get updated, the old version stays searchable alongside the new. You can see exactly which spec changed between revisions.'},
                 ],
                 'decisions': [
-                    {'title': 'Text-first search', 'desc': 'Prioritized text extraction over CAD rendering — most plan documents contain readable labels and callouts that text search can index directly.'},
-                    {'title': 'Keyword + semantic hybrid', 'desc': 'Combines traditional keyword matching with semantic similarity to handle both exact specs ("24x36 window") and natural language queries ("biggest conference room").'},
+                    {'title': 'Text extraction over CAD parsing', 'desc': 'Most plan PDFs have readable labels and callouts. Full CAD parsing would be more powerful but way more complex — text got us 90% of the value with 10% of the effort.'},
+                    {'title': 'Keyword + semantic, not just one', 'desc': 'Pure vector search misses exact numbers ("24x36 window"). Pure keyword misses paraphrases. Combining both covers the real ways people query plans.'},
                 ],
                 'results': [
-                    {'icon': '🔍', 'text': 'Find any room or spec in seconds instead of flipping through pages'},
-                    {'icon': '📐', 'text': 'Construction teams can verify dimensions without printing and measuring'},
-                    {'icon': '📋', 'text': 'Plan version tracking — know exactly which spec applies to which revision'},
+                    {'icon': '🔍', 'text': 'Find any room or spec in seconds instead of flipping pages'},
+                    {'icon': '📋', 'text': 'Track which spec applies to which plan revision'},
                 ],
-                'next': ['CAD file support for native .dwg/.dxf parsing', 'Auto-dimension extraction from plan callouts', 'Markup and annotation sharing across team members'],
+                'next': ['CAD file support for .dwg/.dxf', 'Auto-dimension extraction from callouts'],
             },
         },
         {
             'name': 'ScanExcel',
-            'description': 'Turns scanned documents, receipts, handwritten notes, and pasted text into reviewed spreadsheet rows.',
+            'description': 'Turns scanned receipts, invoices, and handwritten notes into editable spreadsheet rows.',
             'tech': ['Python', 'OCR', 'Excel Automation'],
             'url': 'https://github.com/Jdrexx/scanexcel',
             'status': 'active',
-            'details': 'OCR pipeline that extracts text from scans and handwritten notes, then structures it into editable spreadsheet rows. Reduces manual data entry for bookkeeping, inventory, and document digitization workflows.',
+            'details': 'OCR pipeline that extracts text from scans and handwritten notes, then structures it into editable spreadsheet rows.',
             'case_study': {
-                'problem': 'Receipts, invoices, and handwritten notes pile up in paper form or as phone photos. Someone has to manually type each line into a spreadsheet — tedious, slow, and prone to typos. For small businesses doing weekly bookkeeping, this burns hours.',
+                'problem': 'Every week I\'d watch small business owners manually type receipt lines into spreadsheets. It\'s mind-numbing work and mistakes slip in constantly. A photo of a receipt should just become a row in a spreadsheet without someone retyping it.',
                 'steps': [
-                    {'title': 'Capture or upload', 'desc': 'Take a photo of a receipt, scan an invoice, or paste raw text. The system accepts images and text input.'},
-                    {'title': 'Extract & parse', 'desc': 'OCR engine extracts text from images. A parsing layer identifies fields: date, vendor, amount, line items, and totals.'},
-                    {'title': 'Review & export', 'desc': 'Results appear as structured spreadsheet rows. Users correct any misreads before exporting to Excel or CSV.'},
+                    {'title': 'Snap or paste', 'desc': 'Take a photo of a receipt, scan an invoice, or paste raw text. The pipeline handles all three input types.'},
+                    {'title': 'Extract and review', 'desc': 'OCR pulls the text, then layout heuristics identify date, vendor, line items, and totals. The result appears as structured rows. You correct any misreads before export — because automated bookkeeping mistakes are worse than manual ones.'},
                 ],
                 'decisions': [
-                    {'title': 'Human-in-the-loop review', 'desc': 'Full automation is risky for financial data. The system extracts, then a human reviews and confirms before export — catches OCR mistakes without sacrificing speed.'},
-                    {'title': 'Rule-based field parsing', 'desc': 'Instead of an LLM for every receipt (slow and expensive), extraction uses layout heuristics and regex patterns tuned for common receipt formats. Fast and deterministic.'},
+                    {'title': 'Human review before export', 'desc': 'I could have made it fully automatic, but financial data is unforgiving. One OCR mistake in a tax filing is a headache nobody needs. The review step catches errors without making the process slow.'},
+                    {'title': 'Regex + heuristics over LLM', 'desc': 'LLMs are slow and unpredictable for receipt parsing. Layout rules and regex patterns handle 95% of receipts in milliseconds. For the weird 5%, the human review step catches them.'},
                 ],
                 'results': [
-                    {'icon': '⏱️', 'text': 'Cuts data entry time from 30 minutes to under 5 per batch of receipts'},
-                    {'icon': '✅', 'text': 'Review step catches OCR errors before they hit the books'},
-                    {'icon': '📊', 'text': 'Exports directly to Excel — no format conversion needed'},
+                    {'icon': '⏱️', 'text': 'Data entry drops from 30 minutes to under 5 per receipt batch'},
+                    {'icon': '✅', 'text': 'Review catches OCR errors before they hit the books'},
                 ],
-                'next': ['Mobile app with real-time camera capture', 'Multi-language OCR for receipts in Spanish and Chinese', 'Table detection for complex invoice layouts'],
+                'next': ['Multi-language OCR', 'Mobile camera capture'],
             },
         },
         {
             'name': 'KnowledgeAssistant',
-            'description': 'Uploads notes/docs, chunks them, searches passages, and answers questions with citations.',
+            'description': 'Upload docs, search passages, get answers with source citations — no commercial vector DB required.',
             'tech': ['Python', 'Search', 'Knowledge Base'],
             'url': 'https://github.com/Jdrexx/knowledgeassistant',
             'status': 'active',
-            'details': 'RAG-style knowledge base that chunks uploaded documents, indexes passages, and answers queries with source citations. Designed for teams that need to search internal documentation without a commercial vector database.',
+            'details': 'A lightweight RAG-style knowledge base that chunks documents, indexes passages, and answers queries with source citations. Runs entirely in-process — no Pinecone, no Weaviate, no API keys.',
             'case_study': {
-                'problem': 'Teams sit on mountains of documentation — SOPs, project notes, client records, technical specs. Finding the right information means digging through folders or asking someone who "might know." Slow, frustrating, and scales terribly.',
+                'problem': 'Every team I\'ve worked with has a "docs folder problem." SOPs, project notes, client records — they pile up and nobody can find anything. People end up asking whoever "might know," which is slow and breaks when that person is out.',
                 'steps': [
-                    {'title': 'Upload documents', 'desc': 'Upload plain text files, markdown docs, or paste notes directly. Each document is stored with metadata for tracking.'},
-                    {'title': 'Chunk & index', 'desc': 'Documents are split into overlapping passages. Each passage becomes a searchable vector embedding, mapped back to its source document for attribution.'},
-                    {'title': 'Ask questions', 'desc': 'Type a question in plain English. The system finds relevant passages via semantic similarity and returns answers with citations back to the original source.'},
+                    {'title': 'Upload', 'desc': 'Text files, markdown, or pasted notes. Each document gets tagged with metadata so you can track provenance.'},
+                    {'title': 'Chunk and vectorize', 'desc': 'Documents split into overlapping passages (~20% overlap so nothing gets cut off at boundaries). Each passage becomes a searchable vector embedding.'},
+                    {'title': 'Ask and verify', 'desc': 'Type a question in plain English. The system surfaces relevant passages with similarity scoring. Every answer includes a citation back to the source document — no black-box responses.'},
                 ],
                 'decisions': [
-                    {'title': 'No commercial vector DB', 'desc': 'Uses in-process similarity search instead of Pinecone or Weaviate. Keeps deployment simple, cost zero, and data fully private — critical for internal business docs.'},
-                    {'title': 'Overlapping chunks', 'desc': 'Passages overlap by ~20% to avoid cutting off meaning at chunk boundaries. A sentence spanning two chunks appears in full in at least one passage.'},
-                    {'title': 'Citation-first answers', 'desc': 'Every answer includes the source passage and document name. Users verify claims and explore context — no black-box responses.'},
+                    {'title': 'No cloud vector database', 'desc': 'In-process similarity search keeps deployment dead simple, cost at zero, and data fully private. For internal business docs, sending everything to Pinecone was a non-starter from day one.'},
                 ],
                 'results': [
-                    {'icon': '⚡', 'desc': 'New team members query internal docs from day one instead of waiting for walkthroughs'},
-                    {'icon': '🔍', 'desc': 'Search time drops from minutes to seconds for specific policies and specs'},
-                    {'icon': '📋', 'desc': 'Every answer is auditable — citations prevent hallucinated responses'},
+                    {'icon': '⚡', 'text': 'New team members query internal docs immediately instead of waiting for walkthroughs'},
+                    {'icon': '🔍', 'text': 'Search specific policies in seconds instead of digging through folders'},
+                    {'icon': '📋', 'text': 'Every answer is auditable — citations link back to the original document'},
                 ],
-                'next': ['PDF and Word document uploads with automatic extraction', 'Batch upload entire folders at once', 'Conversation history across multiple questions', 'Admin dashboard for query logs and popular searches'],
+                'next': ['PDF/Word uploads with auto-extraction', 'Batch upload folders', 'Conversation history and query logs'],
             },
         },
         {
             'name': 'JobCRM',
-            'description': 'Kanban-style job application tracker with follow-up reminders and match notes.',
+            'description': 'Kanban-style job application tracker with follow-up reminders and interview notes.',
             'tech': ['Python', 'CRM', 'Productivity'],
             'url': 'https://github.com/Jdrexx/jobcrm',
             'status': 'active',
-            'details': 'A kanban job tracker that organizes applications by stage (saved, applied, interviewing, offer, rejected). Includes follow-up reminders and interview note templates. Built to streamline the job search workflow.',
+            'details': 'A kanban job tracker that organizes applications by stage — saved, applied, interviewing, offer, rejected. Includes follow-up reminders and interview note templates.',
             'case_study': {
-                'problem': 'Job hunting involves dozens of applications across multiple platforms, each at different stages. Spreadsheets get messy, follow-ups get missed, and interview prep notes end up scattered across files. A purpose-built tracker keeps everything in one place.',
+                'problem': 'Job hunting means juggling applications across LinkedIn, Indeed, company portals, and email. Spreadsheets get messy fast, follow-ups fall through the cracks, and interview notes end up in five different files. I built this because I was living the problem.',
                 'steps': [
-                    {'title': 'Log an application', 'desc': 'Add company, role, link, and notes. The card appears in the "Saved" column automatically.'},
-                    {'title': 'Drag through stages', 'desc': 'Move cards across columns as you progress: Saved → Applied → Interviewing → Offer → Rejected. Each move logs the date.'},
-                    {'title': 'Follow up on time', 'desc': 'Set reminders for follow-ups after applications or interviews. Never forget to check in after a week of silence.'},
+                    {'title': 'Log the application', 'desc': 'Add company, role, link, and notes. The card lands in "Saved" automatically.'},
+                    {'title': 'Drag through stages', 'desc': 'Move cards forward as you progress. Each stage transition logs the date so you can see how long things take.'},
+                    {'title': 'Set follow-ups', 'desc': 'Reminders for checking in after applications or interviews. No more realizing a week later you forgot to follow up.'},
                 ],
                 'decisions': [
-                    {'title': 'Kanban over list view', 'desc': 'Visual columns match how people naturally think about pipeline stages. Familiar from Trello, Linear, and Jira — zero learning curve.'},
-                    {'title': 'Lightweight, no auth', 'desc': 'No user accounts or login system. Keeps it simple for a single user running locally — a deliberate tradeoff to avoid overhead for a personal tool.'},
+                    {'title': 'Kanban not list', 'desc': 'A linear list doesn\'t capture pipeline stage at a glance. Kanban columns match how you actually think about your job search pipeline — no learning curve if you\'ve used Trello or Linear.'},
+                    {'title': 'No auth, single user', 'desc': 'This is a personal tool. Adding user accounts would triple the complexity for zero benefit. If someone else wants to use it, they can clone the repo.'},
                 ],
                 'results': [
                     {'icon': '📋', 'text': 'Every application tracked from first save through final outcome'},
-                    {'icon': '⏰', 'text': 'Follow-up reminders prevent opportunities from going cold'},
-                    {'icon': '📝', 'text': 'Interview notes stored alongside each application — no more lost prep docs'},
+                    {'icon': '⏰', 'text': 'Follow-up reminders keep opportunities from going cold'},
                 ],
-                'next': ['Calendar integration for interview scheduling', 'Stats dashboard with response rates and stage timelines', 'Email integration to auto-detect application confirmations'],
             },
         },
         {
             'name': 'ExpenseTracker',
-            'description': 'Imports CSV expenses, auto-categorizes spending, detects anomalies, and exports monthly insights.',
+            'description': 'Imports CSV bank exports, auto-categorizes transactions, flags anomalies, generates monthly reports.',
             'tech': ['Python', 'Bookkeeping', 'Data Analysis'],
             'url': 'https://github.com/Jdrexx/ExpenseTracker',
             'status': 'active',
-            'details': 'CSV-based expense analyzer that auto-categorizes transactions, flags anomalies, and generates monthly spending summaries. Useful for freelancers and small businesses tracking cash flow.',
+            'details': 'CSV-based expense analyzer for freelancers and small businesses. Auto-categorizes transactions, flags duplicates and unusual charges, and exports monthly spending summaries.',
             'case_study': {
-                'problem': 'Bank and credit card CSV exports are raw transaction dumps — no categories, no summaries, no insights. Freelancers and small business owners spend hours each month manually categorizing and reconciling entries.',
+                'problem': 'Bank CSV exports are raw data dumps — no categories, no summaries, no insights. Freelancers and small business owners spend hours every month manually tagging transactions and reconciling. I watched someone do this in Excel for an entire afternoon and decided that was enough.',
                 'steps': [
-                    {'title': 'Import a CSV', 'desc': 'Drop in a bank or credit card CSV. The system auto-detects the format — no column mapping needed.'},
-                    {'title': 'Auto-categorize', 'desc': 'Each transaction is tagged with a category: groceries, dining, utilities, transportation, entertainment, health, shopping, income, or custom. Rules learn from corrections.'},
-                    {'title': 'Review insights', 'desc': 'See monthly spending breakdowns, anomaly flags (unusual amounts, duplicate charges), and category trends. Export the report for tax prep.'},
+                    {'title': 'Drop in a CSV', 'desc': 'Bank or credit card export. The system auto-detects the column layout — no mapping step needed.'},
+                    {'title': 'Auto-categorize', 'desc': 'Merchant name patterns and amount ranges tag each transaction: groceries, dining, utilities, transportation, and so on. Rules learn from manual corrections over time.'},
                 ],
                 'decisions': [
-                    {'title': 'Rule-based categorization', 'desc': 'Uses merchant name patterns and amount ranges instead of an LLM. Deterministic, instant, and predictable — no API costs or variable latency.'},
-                    {'title': 'Statistical anomaly detection', 'desc': 'Flags transactions that deviate significantly from a merchant or category baseline. Catches billing errors and fraud without manual review of every line.'},
+                    {'title': 'Rule-based, not LLM', 'desc': 'Merchant patterns and amount ranges are deterministic, instant, and predictable. No API costs, no variable latency, no "the AI was down" excuses for something as straightforward as categorizing a Starbucks charge.'},
+                    {'title': 'Statistical anomaly detection', 'desc': 'Simple deviation-from-baseline catches duplicates and unusual charges. Catches billing errors without making you manually review every entry.'},
                 ],
                 'results': [
                     {'icon': '📉', 'text': 'Monthly categorization drops from hours to under 5 minutes'},
-                    {'icon': '🚩', 'text': 'Duplicate and unusual charges flagged automatically'},
-                    {'icon': '📊', 'text': 'Clean monthly reports ready for tax preparation and budget reviews'},
+                    {'icon': '🚩', 'text': 'Duplicate and suspicious charges flagged automatically'},
                 ],
-                'next': ['Bank API integration for auto-import', 'Recurring expense detection and subscription tracking', 'Budget targets with spending alerts'],
             },
         },
         {
             'name': 'ServiceAssistant',
-            'description': 'Captures service-business leads, summarizes urgency, and manages receptionist intake workflows.',
+            'description': 'Captures service-business leads, scores urgency, and routes to the right person.',
             'tech': ['Python', 'Automation', 'Lead Intake'],
             'url': 'https://github.com/Jdrexx/serviceassistant',
             'status': 'active',
-            'details': 'Lead intake system for service businesses that captures incoming requests, scores urgency, and routes them to the right team member. Designed to replace manual receptionist triage with automated workflows.',
+            'details': 'Lead intake system for service businesses that captures incoming requests, scores urgency, and routes them to the right team member.',
             'case_study': {
-                'problem': 'Service businesses (plumbers, electricians, HVAC) get leads through calls, texts, and emails. Someone manually triages urgency, routes to the right tech, and tracks follow-up. High-volume shops drop leads, respond late, or send the wrong person — costing jobs.',
+                'problem': 'Service businesses get leads through calls, texts, emails, and web forms. Someone has to triage urgency, figure out which tech is available, and track follow-up. High-volume shops drop leads and send the wrong person — every missed call is a lost job.',
                 'steps': [
-                    {'title': 'Lead comes in', 'desc': 'A new request arrives via phone, web form, or email. The system captures contact info, service type, and description.'},
-                    {'title': 'Urgency scored', 'desc': 'Keywords, time windows, and service type determine urgency. "Water flooding basement" scores higher than "faucet drip."'},
-                    {'title': 'Routed & tracked', 'desc': 'The lead is assigned to the right team member with priority level. Status tracks through contact, scheduled, in-progress, completed.'},
+                    {'title': 'Lead arrives', 'desc': 'Phone, web form, or email. The system captures contact info, service type, and description automatically.'},
+                    {'title': 'Urgency scored', 'desc': 'Keyword matching and time windows determine priority. "Water flooding basement" gets a faster response than "faucet drip."'},
+                    {'title': 'Routed to the right tech', 'desc': 'Assigns based on availability and service type. Status tracks through contact → scheduled → in-progress → completed.'},
                 ],
                 'decisions': [
-                    {'title': 'Urgency scoring over FIFO', 'desc': 'First-in-first-out doesn\'t work for service calls — a burst pipe needs faster response than a slow drain. Keyword-based urgency scoring prioritizes what matters.'},
-                    {'title': 'Simple queue, not full CRM', 'desc': 'Focused on intake and routing rather than invoicing, scheduling, or marketing. Integrates with existing tools rather than replacing them.'},
+                    {'title': 'Urgency scoring over FIFO', 'desc': 'First-in-first-out doesn\'t work for service calls. A burst pipe needs a faster response than a slow drain, and keyword-based urgency scoring handles that without needing a dispatcher.'},
                 ],
                 'results': [
                     {'icon': '⚡', 'text': 'Emergency calls routed in seconds instead of minutes'},
-                    {'icon': '📋', 'text': 'No leads lost — every intake is captured and tracked'},
-                    {'icon': '🎯', 'text': 'Right technician dispatched on the first try, every time'},
+                    {'icon': '📋', 'text': 'Every lead captured and tracked — none lost in the shuffle'},
                 ],
-                'next': ['SMS integration for text-in leads and auto-replies', 'Automated follow-up scheduling with SLA tracking', 'Customer dashboard for lead status self-service'],
+                'next': ['SMS text-in support and auto-replies', 'Follow-up scheduling with SLA tracking'],
             },
         },
     ],
