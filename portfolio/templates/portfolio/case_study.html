@@ -1,0 +1,88 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block title %}Case Study: {{ project.name }} | {{ content.name }}{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'portfolio/css/case-study.css' %}">
+<section class="page-hero section-shell fade-in">
+  <p class="eyebrow">Case Study</p>
+  <h1>{{ project.name }}</h1>
+  <p class="lead">{{ project.description }}</p>
+</section>
+
+<section class="cs-banner fade-in">
+  <img class="cs-hero" src="{% static 'portfolio/projects/' %}{{ project.name|lower }}.png" alt="{{ project.name }} screenshot" loading="lazy">
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <div class="cs-layout">
+    <div>
+      <p class="eyebrow">The Problem</p>
+      <h2>Why this exists</h2>
+      <p class="section-text">{{ cs.problem }}</p>
+    </div>
+    <div class="cs-stats">
+      {% for result in cs.results|slice:":3" %}
+      <div class="cs-stat">
+        <strong>{{ result.icon }} {% if result.text %}{{ result.text }}{% else %}{{ result.desc }}{% endif %}</strong>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <p class="eyebrow">How It Works</p>
+  <h2>From input to outcome</h2>
+  <div class="cs-flow">
+    {% for step in cs.steps %}
+    <div class="cs-step">
+      <span class="cs-step-num">0{{ forloop.counter }}</span>
+      <h3>{{ step.title }}</h3>
+      <p class="section-text">{{ step.desc }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <p class="eyebrow">Technical Decisions</p>
+  <h2>Why build it this way</h2>
+  <div class="cs-decisions">
+    {% for decision in cs.decisions %}
+    <div class="cs-decision">
+      <h3>{{ decision.title }}</h3>
+      <p class="section-text">{{ decision.desc }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <p class="eyebrow">Results</p>
+  <h2>What it enables</h2>
+  <div class="cs-results">
+    {% for result in cs.results %}
+    <div class="cs-result">
+      <span class="cs-result-icon">{{ result.icon }}</span>
+      <p class="section-text">{% if result.text %}{{ result.text }}{% else %}{{ result.desc }}{% endif %}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-shell cs-section fade-in">
+  <p class="eyebrow">What's Next</p>
+  <h2>Planned improvements</h2>
+  <div class="cs-next">
+    <ul>
+      {% for item in cs.next %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="cs-cta">
+    <a class="button primary" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">View repository →</a>
+    <a class="button secondary" href="{% url 'portfolio:projects' %}">Back to projects</a>
+  </div>
+</section>
+{% endblock %}

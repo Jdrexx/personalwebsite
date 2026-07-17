@@ -36,13 +36,16 @@ This is a static portfolio website built with Django. It has no user accounts, n
 | CSRF protection | Active (`CsrfViewMiddleware`) |
 | X-Frame-Options | Active (`XFrameOptionsMiddleware` — DENY default) |
 | SecurityMiddleware | Active (X-Content-Type-Options, X-Frame-Options, SECURE_SSL_REDIRECT, HSTS) |
+| Custom SecurityHeadersMiddleware | Active (sets CSP, Permissions-Policy, Referrer-Policy, COOP) |
+| Admin URL gating | Configurable via `DJANGO_ADMIN_URL` env var (hidden from scanners) |
 | Template auto-escaping | Active — no `|safe` filters, no `{% autoescape off %}` |
 | ALLOWED_HOSTS | Configured via `DJANGO_ALLOWED_HOSTS` env var |
 | SESSION_COOKIE_SECURE | True |
 | CSRF_COOKIE_SECURE | True |
+| CSRF_TRUSTED_ORIGINS | Configurable via `DJANGO_CSRF_TRUSTED_ORIGINS` env var |
 | SECURE_PROXY_SSL_HEADER | Configured for Railway |
 | SECURE_HSTS_SECONDS | 31536000 (production only) |
-| SECURE_SSL_REDIRECT | True (production only) |
+| SECURE_SSL_REDIRECT | True (production only, gated via `DJANGO_SECURE_SSL`) |
 
 ### Audit History
 
