@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import HttpResponse
 from django.urls import include, path
 
 urlpatterns = [
@@ -15,3 +16,11 @@ if settings.ADMIN_URL:
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Google Search Console verification
+urlpatterns += [
+    path('googled0311ec69bf9f0b1.html', lambda r: HttpResponse(
+        'google-site-verification: googled0311ec69bf9f0b1.html',
+        content_type='text/plain',
+    )),
+]
