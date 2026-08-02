@@ -73,9 +73,9 @@ SITE_CONTENT = {
     ],
     'experience': [
         {
-            'company': 'Freelance Technical Consultant',
+            'company': 'Contract Technical Consultant',
             'location': 'Various Locations, USA',
-            'role': 'Freelance Technical Consultant',
+            'role': 'Contract Technical Consultant',
             'dates': 'January 2026 – Present',
             'bullets': [
                 'Designed and deployed responsive websites integrated with business systems, managing full lifecycle from requirements gathering through testing and deployment across desktop and mobile.',
