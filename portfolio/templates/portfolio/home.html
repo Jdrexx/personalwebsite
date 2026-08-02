@@ -4,7 +4,11 @@
 <section class="hero section-shell">
   <div class="hero-copy">
     <p class="eyebrow">{{ content.location }} · Available for technical delivery and automation work</p>
-    <h1 class="typewriter" data-text="{{ content.headline }}">{{ content.headline }}</h1>
+    <h1 class="typewriter" data-text="{{ content.headline }}">
+      <span class="typewriter-sizer" aria-hidden="true">{{ content.headline }}</span>
+      <span class="typewriter-animated" aria-hidden="true">{{ content.headline }}</span>
+      <span class="sr-only">{{ content.headline }}</span>
+    </h1>
     <p class="lead">{{ content.tagline }}</p>
     <div class="hero-actions">
       <a class="button primary" href="{% url 'portfolio:projects' %}">{{ content.cta.primary_label }}</a>
@@ -44,7 +48,11 @@
 
 <section class="section-shell showcase fade-in">
   <div class="project-thumb">
-    <img class="project-screenshot" src="{% static 'portfolio/featured-work.png' %}" alt="A selection of Jonathan Dreksler's workflow automation projects" width="1440" height="757" loading="lazy" decoding="async">
+    <picture>
+      <source type="image/avif" srcset="{% static 'portfolio/featured-work-480.avif' %} 480w, {% static 'portfolio/featured-work-720.avif' %} 720w, {% static 'portfolio/featured-work-960.avif' %} 960w" sizes="(max-width: 720px) calc(100vw - 48px), 460px">
+      <source type="image/webp" srcset="{% static 'portfolio/featured-work-480.webp' %} 480w, {% static 'portfolio/featured-work-720.webp' %} 720w, {% static 'portfolio/featured-work-960.webp' %} 960w" sizes="(max-width: 720px) calc(100vw - 48px), 460px">
+      <img class="project-screenshot" src="{% static 'portfolio/featured-work.png' %}" alt="A selection of Jonathan Dreksler's workflow automation projects" width="1440" height="757" loading="lazy" decoding="async">
+    </picture>
   </div>
   <div><p class="eyebrow">Featured Work</p><h2>Portfolio projects focused on real-world workflows.</h2><p class="section-text">Six detailed Python, automation, OCR, data, and productivity case studies with the decisions behind each build.</p><a class="text-link" href="{% url 'portfolio:projects' %}">Explore projects →</a></div>
 </section>

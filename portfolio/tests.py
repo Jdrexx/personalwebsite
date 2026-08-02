@@ -16,6 +16,27 @@ class PortfolioPagesTests(TestCase):
         self.assertContains(response, 'Technical Project Manager')
         self.assertContains(response, 'degree and 4+ years')
 
+    def test_home_typewriter_reserves_layout_and_remains_accessible(self):
+        response = self.client.get(reverse('portfolio:home'), secure=True)
+        self.assertContains(response, 'class="typewriter-sizer" aria-hidden="true"')
+        self.assertContains(response, 'class="typewriter-animated" aria-hidden="true"')
+        self.assertContains(response, 'class="sr-only"')
+
+    def test_home_uses_responsive_featured_image(self):
+        response = self.client.get(reverse('portfolio:home'), secure=True)
+        self.assertContains(response, 'featured-work-480.webp')
+        self.assertContains(response, 'featured-work-720.webp')
+        self.assertContains(response, 'featured-work-960.webp')
+        self.assertContains(response, 'featured-work-480.avif')
+        self.assertContains(response, 'featured-work-720.avif')
+        self.assertContains(response, 'featured-work-960.avif')
+        self.assertContains(response, 'type="image/avif"')
+        self.assertContains(response, 'type="image/webp"')
+
+    def test_brand_uses_visible_text_as_accessible_name(self):
+        response = self.client.get(reverse('portfolio:home'), secure=True)
+        self.assertNotContains(response, 'aria-label="Jonathan Dreksler home"')
+
     def test_projects_page_loads_github_projects(self):
         response = self.client.get(reverse('portfolio:projects'), secure=True)
         self.assertEqual(response.status_code, 200)

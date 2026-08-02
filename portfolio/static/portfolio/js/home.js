@@ -4,10 +4,12 @@
   var heading = document.querySelector(".typewriter");
   if (heading && !reducedMotion) {
     var text = heading.dataset.text || heading.textContent;
-    heading.textContent = "";
+    var animatedText = heading.querySelector(".typewriter-animated");
+    heading.classList.add("typewriter-enhanced");
+    animatedText.textContent = "";
     var index = 0;
     function typeNext() {
-      if (index < text.length) { heading.textContent += text.charAt(index++); window.setTimeout(typeNext, 45); }
+      if (index < text.length) { animatedText.textContent += text.charAt(index++); window.setTimeout(typeNext, 45); }
     }
     window.setTimeout(typeNext, 250);
   }

@@ -167,7 +167,19 @@ USE_TZ = True
 # ── Static & Media ─────────────────────────────────────────────────────────
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': (
+            'django.contrib.staticfiles.storage.StaticFilesStorage'
+            if DEBUG
+            else 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+        ),
+    },
+}
+WHITENOISE_MAX_AGE = 31536000
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
