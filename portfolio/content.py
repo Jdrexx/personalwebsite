@@ -12,21 +12,17 @@ SITE_CONTENT = {
     'email': 'Jon@jdreksler.com',
     'phone': '(206) 659-9755',
     'github': 'https://github.com/Jdrexx',
-    'headline': 'Technical Project Manager',
+    'headline': 'Custom Websites & Web Applications',
     'tagline': (
-        'I build AI agent tools and automation systems, and I manage the '
-        'projects that get them into production. API integrations, workflow '
-        'pipelines, Django apps — whatever actually helps a team stop doing '
-        'things by hand.'
+        'I design, build, deploy, and maintain custom websites and web applications '
+        'for organizations that need software tailored to their actual workflow.'
     ),
     'summary': (
-        'Technical Project Manager with a Computer Science degree and 4+ years '
-        'of experience bridging technical delivery and business outcomes. I\'ve '
-        'led software rollouts, built automation workflows, managed multi-stakeholder '
-        'construction projects, and worked across industries from edtech to AV '
-        'installation. My background covers project management, customer success, '
-        'data systems, and compliance — with a practical focus on security and '
-        'governance rather than buzzwords.'
+        'I turn business needs into practical, maintainable software. From discovery '
+        'and scope through development, deployment, and support, I keep the work '
+        'aligned with the people who will use it, the outcome it needs to produce, '
+        'and the client\'s budget and timeline. My background in computer science '
+        'and project management helps bridge technical decisions and business priorities.'
     ),
     'cta': {
         'primary_label': 'View Projects',
@@ -36,7 +32,7 @@ SITE_CONTENT = {
     },
     'status': {
         'emoji': '⚡',
-        'text': 'Building AI workflow pipelines and automation systems',
+        'text': 'Available for contract website and software projects',
         'link': '/projects/',
         'link_label': 'See what I build',
     },
@@ -48,12 +44,12 @@ SITE_CONTENT = {
     ],
     'focus_areas': [
         {
-            'title': 'AI Automation & Workflow Design',
-            'description': 'Agent frameworks, API integrations, and pipelines that automate the repetitive stuff so teams focus on work that matters.',
+            'title': 'Custom Websites & Web Applications',
+            'description': 'Responsive websites, client portals, internal tools, and business applications designed around real users and workflows.',
         },
         {
-            'title': 'Systems Integration & Development',
-            'description': 'Full-stack Django sites, MCP tool-calling systems, and data pipelines that connect platforms instead of living in silos.',
+            'title': 'Integration & Workflow Automation',
+            'description': 'APIs, data pipelines, and dependable automation that connect existing tools and reduce repetitive work.',
         },
         {
             'title': 'Project Management & Operations',
@@ -61,7 +57,7 @@ SITE_CONTENT = {
         },
     ],
     'skills': [
-        'AI Automation & Workflow Design', 'Agent-Based Solutions', 'API Integration',
+        'Custom Web Applications', 'Responsive Website Development', 'API Integration',
         'Process Automation', 'Systems Integration', 'Project Management',
         'Risk Management', 'Change Management', 'Stakeholder Communication', 'Customer Success Management',
         'Process Optimization', 'AI Governance & Security', 'Quality Control',

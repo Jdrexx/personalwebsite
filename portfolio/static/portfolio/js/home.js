@@ -17,10 +17,10 @@
   var output = document.getElementById("terminal-output");
   var commands = {
     help: "Available: about, projects, services, skills, help, clear",
-    about: "Technical Project Manager — AI automation, systems integration, and delivery.",
+    about: "Custom websites and web applications — from discovery through deployment and support.",
     projects: "ArchPlanReview · ScanExcel · KnowledgeAssistant · JobCRM · ExpenseTracker · ServiceAssistant",
-    services: "AI Workflow Automation · Python & Django Integration · Technical Project Management",
-    skills: "AI Automation, API Integration, Python, Django, MCP, Project Management"
+    services: "Custom Web Applications · Workflow Automation · Technical Project Management",
+    skills: "Web Development, API Integration, Python, Django, Automation, Project Management"
   };
   if (input && output) input.addEventListener("keydown", function (event) {
     if (event.key !== "Enter" || !input.value.trim()) return;

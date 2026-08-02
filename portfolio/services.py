@@ -2,9 +2,9 @@
 
 SERVICES = {
     "ai-workflow-automation": {
-        "name": "AI Workflow Automation",
-        "short": "Practical AI and rules-based workflows that remove repetitive work while keeping people in control.",
-        "description": "AI workflow automation consulting for document intake, knowledge search, lead routing, API integrations, and auditable human-in-the-loop processes.",
+        "name": "Workflow Automation",
+        "short": "Practical workflows that reduce repetitive work, improve consistency, and keep people in control.",
+        "description": "Custom workflow automation for document intake, knowledge search, lead routing, API integrations, and reviewable business processes.",
         "problem": "Teams often know which task wastes time but not whether it needs an LLM, deterministic automation, or a process redesign. The work starts by mapping the decision points, data risks, and handoffs before choosing technology.",
         "outcomes": [
             "A documented current-state workflow and automation opportunity map",
@@ -21,9 +21,9 @@ SERVICES = {
         "related": ["KnowledgeAssistant", "ScanExcel", "ServiceAssistant"],
     },
     "systems-integration": {
-        "name": "Python & Django Systems Integration",
-        "short": "Secure web applications, API connections, and data pipelines that make disconnected tools work together.",
-        "description": "Python and Django systems integration for internal tools, APIs, data validation pipelines, operational dashboards, and secure business workflows.",
+        "name": "Custom Web Applications & Integration",
+        "short": "Secure websites, web applications, API connections, and data pipelines tailored to how your organization works.",
+        "description": "Custom website and web application development, including client portals, internal tools, APIs, operational dashboards, and secure business workflows.",
         "problem": "Operational data tends to become fragmented across spreadsheets, SaaS tools, inboxes, and line-of-business systems. Integration work should reduce duplicate entry without creating a fragile black box.",
         "outcomes": [
             "A source-to-destination data and ownership map",

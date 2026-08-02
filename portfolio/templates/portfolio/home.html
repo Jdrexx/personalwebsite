@@ -3,7 +3,7 @@
 {% block content %}
 <section class="hero section-shell">
   <div class="hero-copy">
-    <p class="eyebrow">{{ content.location }} · Available for technical delivery and automation work</p>
+    <p class="eyebrow">{{ content.location }} · Contract website and software development</p>
     <h1 class="typewriter" data-text="{{ content.headline }}">
       <span class="typewriter-sizer" aria-hidden="true">{{ content.headline }}</span>
       <span class="typewriter-animated" aria-hidden="true">{{ content.headline }}</span>
@@ -27,13 +27,13 @@
 </section>
 
 <section class="section-shell split-section fade-in">
-  <div><p class="eyebrow">Professional Summary</p><h2>Automation meets execution.</h2></div>
+  <div><p class="eyebrow">How I Work</p><h2>Software shaped around the people who use it.</h2></div>
   <p class="section-text">{{ content.summary }}</p>
 </section>
 
 <section class="section-shell fade-in">
   <p class="eyebrow">Services</p>
-  <h2>Technical work designed around the operating outcome.</h2>
+  <h2>From client need to reliable delivery.</h2>
   <div class="cards-grid service-preview-grid">
     {% for slug, service in services.items %}
     <article class="card">

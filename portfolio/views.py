@@ -27,8 +27,8 @@ def base_context(active="home", seo=None):
 
 def home(request):
     description = (
-        "Jonathan Dreksler is a technical project manager and Python/Django builder "
-        "focused on AI workflow automation, systems integration, and operational delivery."
+        "Jonathan Dreksler designs, builds, deploys, and maintains custom websites "
+        "and web applications tailored to each client's users and workflow."
     )
     profile = {
         "@type": "ProfilePage",
@@ -39,7 +39,7 @@ def home(request):
         "dateModified": "2026-08-02",
     }
     seo = seo_context(
-        title="Jonathan Dreksler | Technical Project Manager & AI Automation",
+        title="Custom Websites & Web Applications | Jonathan Dreksler",
         description=description,
         path="/",
         content=SITE_CONTENT,
@@ -78,7 +78,7 @@ def projects(request):
         if project.get("case_study")
     ]
     seo = seo_context(
-        title="Python, Django & AI Automation Projects | Jonathan Dreksler",
+        title="Custom Software & Web Application Projects | Jonathan Dreksler",
         description=(
             "Explore six detailed Python, Django, OCR, document-search, data, CRM, "
             "and workflow-automation case studies built by Jonathan Dreksler."
@@ -110,10 +110,10 @@ def services(request):
         ],
     }
     seo = seo_context(
-        title="AI Automation & Technical Delivery Services | Jonathan Dreksler",
+        title="Custom Website & Software Services | Jonathan Dreksler",
         description=(
-            "Practical AI workflow automation, Python and Django systems integration, "
-            "and technical project management for operational teams."
+            "Custom websites, web applications, workflow automation, systems integration, "
+            "and technical project delivery for organizations."
         ),
         path=path,
         content=SITE_CONTENT,
@@ -163,10 +163,10 @@ def service_detail(request, slug):
 def contact(request):
     path = reverse("portfolio:contact")
     seo = seo_context(
-        title="Contact Jonathan Dreksler | Technical Projects & Automation",
+        title="Contact Jonathan Dreksler | Website & Software Projects",
         description=(
-            "Contact Jonathan Dreksler about technical project management, AI workflow "
-            "automation, Python/Django systems integration, or operational delivery."
+            "Contact Jonathan Dreksler about a custom website, web application, workflow "
+            "automation, systems integration, or technical delivery project."
         ),
         path=path,
         content=SITE_CONTENT,
