@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'portfolio',
 ]
 
@@ -169,6 +170,12 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Public URL and optional analytics measurement. SITE_URL is deliberately
+# independent of the request host so canonical and sitemap URLs never inherit
+# a Railway preview domain or an untrusted Host header.
+SITE_URL = os.environ.get('DJANGO_SITE_URL', 'https://jdreksler.com').rstrip('/')
+GOOGLE_ANALYTICS_ID = os.environ.get('GOOGLE_ANALYTICS_ID', '').strip()
 
 # ── Production Security (env-gated) ────────────────────────────────────────
 if not DEBUG:

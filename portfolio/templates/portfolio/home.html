@@ -1,175 +1,66 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
-{% block title %}{{ content.name }} | Technical Project Manager{% endblock %}
 {% block content %}
 <section class="hero section-shell">
   <div class="hero-copy">
-    <p class="eyebrow">{{ content.location }} · Available for AI automation, systems integration, project management, and operations work</p>
+    <p class="eyebrow">{{ content.location }} · Available for technical delivery and automation work</p>
     <h1 class="typewriter" data-text="{{ content.headline }}">{{ content.headline }}</h1>
     <p class="lead">{{ content.tagline }}</p>
     <div class="hero-actions">
       <a class="button primary" href="{% url 'portfolio:projects' %}">{{ content.cta.primary_label }}</a>
-      <a class="button secondary" href="{% url 'portfolio:resume' %}">{{ content.cta.secondary_label }}</a>
+      <a class="button secondary" href="{% url 'portfolio:services' %}">Explore Services</a>
     </div>
   </div>
   <aside class="hero-visual" aria-hidden="true">
-    <img class="hero-logo" src="{% static 'portfolio/hero-logo.svg' %}" alt="" loading="lazy">
+    <img class="hero-logo" src="{% static 'portfolio/hero-logo.svg' %}" alt="" width="1024" height="1024" fetchpriority="high">
   </aside>
 </section>
 
-<div class="status-bar">
-  <span class="status-dot"></span>
-  <span class="status-text">{{ content.status.emoji }} {{ content.status.text }}</span>
-  <a class="status-link" href="{{ content.status.link }}">{{ content.status.link_label }} →</a>
-</div>
+<div class="status-bar"><span class="status-dot"></span><span class="status-text">{{ content.status.emoji }} {{ content.status.text }}</span><a class="status-link" href="{{ content.status.link }}">{{ content.status.link_label }} →</a></div>
 
-<section class="metrics-strip fade-in">
-  {% for m in content.metrics %}
-  <div class="metric">
-    <span class="metric-value">{{ m.value }}</span>
-    <span class="metric-label">{{ m.label }}</span>
-  </div>
-  {% endfor %}
+<section class="metrics-strip fade-in" aria-label="Professional highlights">
+  {% for metric in content.metrics %}<div class="metric"><span class="metric-value">{{ metric.value }}</span><span class="metric-label">{{ metric.label }}</span></div>{% endfor %}
 </section>
 
 <section class="section-shell split-section fade-in">
-  <div>
-    <p class="eyebrow">Professional Summary</p>
-    <h2>Automation meets execution.</h2>
-  </div>
+  <div><p class="eyebrow">Professional Summary</p><h2>Automation meets execution.</h2></div>
   <p class="section-text">{{ content.summary }}</p>
 </section>
 
-<section class="section-shell cards-grid">
-  {% for area in content.focus_areas %}
-  <article class="card fade-in">
-    <div class="card-icon">0{{ forloop.counter }}</div>
-    <h3>{{ area.title }}</h3>
-    <p>{{ area.description }}</p>
-  </article>
-  {% endfor %}
+<section class="section-shell fade-in">
+  <p class="eyebrow">Services</p>
+  <h2>Technical work designed around the operating outcome.</h2>
+  <div class="cards-grid service-preview-grid">
+    {% for slug, service in services.items %}
+    <article class="card">
+      <div class="card-icon">0{{ forloop.counter }}</div>
+      <h3><a href="{% url 'portfolio:service_detail' slug=slug %}">{{ service.name }}</a></h3>
+      <p>{{ service.short }}</p>
+      <a class="text-link" href="{% url 'portfolio:service_detail' slug=slug %}">How I approach it →</a>
+    </article>
+    {% endfor %}
+  </div>
 </section>
 
 <section class="section-shell showcase fade-in">
-  <div class="project-thumb" aria-hidden="true">
-    <img class="project-screenshot" src="{% static 'portfolio/featured-work.png' %}" alt="Featured project screenshot" loading="lazy">
+  <div class="project-thumb">
+    <img class="project-screenshot" src="{% static 'portfolio/featured-work.png' %}" alt="A selection of Jonathan Dreksler's workflow automation projects" width="1440" height="757" loading="lazy" decoding="async">
   </div>
-  <div>
-    <p class="eyebrow">Featured Work</p>
-    <h2>Portfolio projects focused on real-world workflows.</h2>
-    <p class="section-text">A selection of Python, automation, OCR, data, and productivity projects from GitHub.</p>
-    <a class="text-link" href="{% url 'portfolio:projects' %}">Explore projects →</a>
-  </div>
+  <div><p class="eyebrow">Featured Work</p><h2>Portfolio projects focused on real-world workflows.</h2><p class="section-text">Six detailed Python, automation, OCR, data, and productivity case studies with the decisions behind each build.</p><a class="text-link" href="{% url 'portfolio:projects' %}">Explore projects →</a></div>
 </section>
 
 <section class="section-shell fade-in">
   <p class="eyebrow">Tools & Skills</p>
-  <div class="skill-cloud">
-    {% for skill in content.skills %}<span class="skill-item" data-skill="{{ skill }}">{{ skill }}</span>{% endfor %}
-  </div>
+  <div class="skill-cloud">{% for skill in content.skills %}<span class="skill-item" data-skill="{{ skill }}">{{ skill }}</span>{% endfor %}</div>
 </section>
 
 <section class="section-shell terminal-section fade-in">
-  <p class="eyebrow">Interactive</p>
-  <h2>Terminal</h2>
-  <p class="section-text">Try typing <kbd>help</kbd>, <kbd>projects</kbd>, <kbd>skills</kbd>, or <kbd>about</kbd></p>
-  <div class="terminal" role="code" aria-label="Interactive terminal">
-    <div class="terminal-output" id="terminal-output">
-      <div class="terminal-line"><span class="prompt">jon@portfolio:~$</span> <span class="cmd">help</span></div>
-      <div class="terminal-line output">Available: help, about, projects, skills, clear</div>
-    </div>
-    <div class="terminal-input-line">
-      <span class="prompt">jon@portfolio:~$</span>
-      <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command input">
-    </div>
+  <p class="eyebrow">Interactive</p><h2>Terminal</h2>
+  <p class="section-text">Try typing <kbd>help</kbd>, <kbd>projects</kbd>, <kbd>services</kbd>, <kbd>skills</kbd>, or <kbd>about</kbd></p>
+  <div class="terminal" role="group" aria-label="Interactive portfolio terminal">
+    <div class="terminal-output" id="terminal-output" aria-live="polite"><div class="terminal-line"><span class="prompt">jon@portfolio:~$</span> <span class="cmd">help</span></div><div class="terminal-line output">Available: help, about, projects, services, skills, clear</div></div>
+    <div class="terminal-input-line"><span class="prompt">jon@portfolio:~$</span><input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command input"></div>
   </div>
 </section>
 {% endblock %}
-
-{% block scripts %}
-{{ block.super }}
-<script>
-// Typing effect
-(function(){
-  var el = document.querySelector('.typewriter');
-  if (!el) return;
-  var text = el.getAttribute('data-text') || el.textContent;
-  el.textContent = '';
-  el.style.visibility = 'visible';
-  var i = 0;
-  function type() {
-    if (i < text.length) {
-      el.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, 35 + Math.random() * 25);
-    }
-  }
-  setTimeout(type, 400);
-})();
-
-// Terminal commands
-(function(){
-  var input = document.getElementById('terminal-input');
-  var output = document.getElementById('terminal-output');
-  if (!input || !output) return;
-
-  var commands = {
-    help: 'Available: about, projects, skills, help, clear',
-    about: 'Technical Project Manager — AI automation, systems integration, and project delivery.',
-    projects: 'ArchPlanReview · ScanExcel · KnowledgeAssistant · JobCRM · ExpenseTracker · ServiceAssistant',
-    skills: 'AI Automation, API Integration, Python, Django, Claude, Hermes, MCP, Project Management',
-  };
-
-  input.addEventListener('keydown', function(e) {
-    if (e.key !== 'Enter' || !input.value.trim()) return;
-    var cmd = input.value.trim().toLowerCase();
-    var line = document.createElement('div');
-    line.className = 'terminal-line';
-    var promptSpan = document.createElement('span');
-    promptSpan.className = 'prompt';
-    promptSpan.textContent = 'jon@portfolio:~$';
-    var cmdSpan = document.createElement('span');
-    cmdSpan.className = 'cmd';
-    cmdSpan.textContent = cmd;
-    line.appendChild(promptSpan);
-    line.appendChild(cmdSpan);
-    output.appendChild(line);
-
-    var resp = document.createElement('div');
-    resp.className = 'terminal-line output';
-    resp.textContent = commands[cmd] || 'Unknown command. Try: help';
-    if (cmd === 'clear') { output.innerHTML = ''; input.value = ''; return; }
-    output.appendChild(resp);
-    output.scrollTop = output.scrollHeight;
-    input.value = '';
-  });
-})();
-
-// Animated counters
-(function(){
-  var els = document.querySelectorAll('.metric-value');
-  if (!els.length) return;
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (!e.isIntersecting) return;
-      var el = e.target;
-      obs.unobserve(el);
-      var text = el.textContent;
-      var match = text.match(/(\d+)(\+?)/);
-      if (!match) return;
-      var target = parseInt(match[1]);
-      var suffix = match[2] || '';
-      el.textContent = '0' + suffix;
-      var current = 0;
-      var step = Math.ceil(target / 30);
-      var timer = setInterval(function() {
-        current += step;
-        if (current >= target) { current = target; clearInterval(timer); }
-        el.textContent = current + suffix;
-      }, 40);
-    });
-  }, { threshold: 0.5 });
-  els.forEach(function(el) { obs.observe(el); });
-})();
-</script>
-{% endblock %}
+{% block scripts %}<script src="{% static 'portfolio/js/home.js' %}" defer></script>{% endblock %}

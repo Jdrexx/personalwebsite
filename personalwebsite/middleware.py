@@ -4,10 +4,8 @@
 class SecurityHeadersMiddleware:
     """Adds Content-Security-Policy and Permissions-Policy headers.
 
-    CSP uses 'unsafe-inline' because the site has inline scripts
-    for theme toggling, terminal widget, and JSON-LD injection.
-    If those are ever extracted to static files, 'unsafe-inline'
-    can be dropped.
+    Interactive code is served from versioned static files, so executable
+    inline scripts are not permitted. JSON-LD is inert metadata.
     """
 
     def __init__(self, get_response):
@@ -19,10 +17,11 @@ class SecurityHeadersMiddleware:
         # Content-Security-Policy
         csp = (
             "default-src 'self';"
-            "script-src 'self' 'unsafe-inline';"
-            "style-src 'self' https://fonts.googleapis.com;"
-            "font-src 'self' https://fonts.gstatic.com;"
-            "img-src 'self' data:;"
+            "script-src 'self' https://www.googletagmanager.com;"
+            "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com;"
+            "style-src 'self';"
+            "font-src 'self';"
+            "img-src 'self' data: https://www.google-analytics.com;"
             "form-action 'self' https://formspree.io;"
             "base-uri 'self';"
             "frame-ancestors 'none';"

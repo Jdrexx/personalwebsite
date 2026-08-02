@@ -1,0 +1,17 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<section class="page-hero section-shell fade-in">
+  <p class="eyebrow">Technical Services</p>
+  <h1>Automation, integration, and delivery that fit the work.</h1>
+  <p class="lead">I help operational teams clarify the problem, choose the simplest responsible approach, build the system, and get it adopted.</p>
+</section>
+<section class="section-shell service-list fade-in">
+  {% for slug, service in services.items %}
+  <article class="service-row">
+    <div class="service-number">0{{ forloop.counter }}</div>
+    <div><h2><a href="{% url 'portfolio:service_detail' slug=slug %}">{{ service.name }}</a></h2><p class="section-text">{{ service.short }}</p><a class="text-link" href="{% url 'portfolio:service_detail' slug=slug %}">View approach and outcomes →</a></div>
+  </article>
+  {% endfor %}
+</section>
+<section class="section-shell split-section fade-in"><div><p class="eyebrow">Working principle</p><h2>Start with the operating constraint.</h2></div><div><p class="section-text">An LLM is not automatically the answer. Some workflows need deterministic rules, some need a better handoff, and some genuinely benefit from language or document intelligence. The architecture should follow the risk, volume, ambiguity, and cost of failure.</p><a class="button primary" href="{% url 'portfolio:contact' %}" data-track="contact_cta">Start a conversation</a></div></section>
+{% endblock %}

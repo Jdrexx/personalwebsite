@@ -1,8 +1,8 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
-{% block title %}Case Study: {{ project.name }} | {{ content.name }}{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'portfolio/css/case-study.css' %}">{% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'portfolio/css/case-study.css' %}">
+<nav class="breadcrumbs section-shell" aria-label="Breadcrumb"><a href="{% url 'portfolio:home' %}">Home</a><span>›</span><a href="{% url 'portfolio:projects' %}">Projects</a><span>›</span><span aria-current="page">{{ project.name }}</span></nav>
 <section class="page-hero section-shell fade-in">
   <p class="eyebrow">Case Study</p>
   <h1>{{ project.name }}</h1>
@@ -10,7 +10,7 @@
 </section>
 
 <section class="cs-banner fade-in">
-  <img class="cs-hero" src="{% static 'portfolio/projects/' %}{{ project.name|lower }}.png" alt="{{ project.name }} screenshot" loading="lazy">
+  <img class="cs-hero" src="{% static 'portfolio/projects/' %}{{ project.name|lower }}.png" alt="{{ project.name }} application interface" width="1024" height="576" fetchpriority="high" decoding="async">
 </section>
 
 <section class="section-shell cs-section fade-in">
@@ -83,6 +83,7 @@
   <div class="cs-cta">
     <a class="button primary" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">View repository →</a>
     <a class="button secondary" href="{% url 'portfolio:projects' %}">Back to projects</a>
+    <a class="button secondary" href="{% url 'portfolio:contact' %}" data-track="contact_cta">Discuss a similar project</a>
   </div>
 </section>
 {% endblock %}

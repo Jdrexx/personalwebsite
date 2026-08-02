@@ -6,6 +6,7 @@
 Personal portfolio site — Django 5.2, dark theme, responsive. Deployed on Railway.
 
 - **docs/SECURITY.md** — CWE audit history and security controls documentation
+- **docs/SEO.md** — SEO architecture, content rules, release checks, and measurement cadence
 
 ## Quick start
 
@@ -40,13 +41,18 @@ Deploys to Railway via git push. Requires two env vars:
 
 Optional: `DJANGO_DEBUG=1` for local dev, `DJANGO_ADMIN_URL=<secret-path>` to gate admin behind a non-standard URL.
 
+SEO/measurement options:
+
+- `DJANGO_SITE_URL` — canonical public origin; defaults to `https://jdreksler.com`
+- `GOOGLE_ANALYTICS_ID` — optional GA4 measurement ID; omitted means no analytics requests
+
 > **Note:** `DJANGO_SECRET_KEY` is mandatory in production — if omitted, the app refuses to start with a clear error message.
 
 ## Known quirks
 
 - Admin is disabled by default. Set `DJANGO_ADMIN_URL` to something random and it activates at `/<that-value>/`.
 - The contact form POSTs to Formspree. Works without a backend SMTP setup but your free Formspree plan has a monthly cap.
-- CSP uses `'unsafe-inline'` for scripts. The inline JS powers the terminal widget and theme toggle. If those get extracted to static files someday I'll tighten it.
+- Executable scripts are served as deferred static assets under a strict CSP; optional GA4 is allowlisted only when configured.
 
 ## Tests
 
