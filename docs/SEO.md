@@ -17,7 +17,9 @@ structured-data, and sitemap tests.
 ## Content rules
 
 1. Give every indexable page a unique title, description, canonical, and search
-   intent. Do not create multiple pages for keyword variants of the same intent.
+   intent. Keep descriptions between 80 and 160 characters so their core message
+   survives typical search and social-preview truncation. Do not create multiple
+   pages for keyword variants of the same intent.
 2. Only add structured-data claims that a visitor can verify on the page.
 3. Add each project with a stable slug, clear problem, technical decisions,
    outcomes, and honest qualification of measured versus expected results.

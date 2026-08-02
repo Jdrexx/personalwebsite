@@ -196,10 +196,9 @@ def case_study(request, slug):
     if not project or not project.get("case_study"):
         raise Http404("Case study not found")
     path = reverse("portfolio:case_study", kwargs={"slug": project["name"].lower()})
-    description = (
-        f"{project['name']} case study: {project['description']} "
-        "See the problem, workflow, technical decisions, results, and planned improvements."
-    )
+    # Keep search and social snippets concise while letting the visible page carry
+    # the full problem, workflow, decisions, results, and roadmap narrative.
+    description = f"{project['name']} case study: {project['description']}"
     article = {
         "@type": "TechArticle",
         "@id": f"{absolute_url(path)}#article",

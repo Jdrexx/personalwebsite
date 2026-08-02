@@ -130,10 +130,13 @@ class SeoInfrastructureTests(TestCase):
                 description = re.search(r'<meta name="description" content="([^"]+)"', html).group(1)
                 self.assertTrue(title.strip())
                 self.assertGreaterEqual(len(description), 80)
-                self.assertLessEqual(len(description), 220)
+                # Concise descriptions are less likely to be truncated in search
+                # results and social previews.
+                self.assertLessEqual(len(description), 160)
                 self.assertTrue(canonical.startswith('https://jdreksler.com/'))
                 self.assertIn('<meta name="robots" content="index,follow,max-image-preview:large">', html)
                 self.assertIn('<meta property="og:url" content="', html)
+                self.assertIn('<meta name="twitter:image:alt" content="', html)
                 self.assertNotIn(title, titles)
                 self.assertNotIn(canonical, canonicals)
                 titles.add(title)
