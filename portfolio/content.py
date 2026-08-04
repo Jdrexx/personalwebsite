@@ -12,10 +12,10 @@ SITE_CONTENT = {
     'email': 'Jon@jdreksler.com',
     'phone': '(206) 659-9755',
     'github': 'https://github.com/Jdrexx',
-    'headline': 'Custom Websites & Web Applications',
+    'headline': 'Software Built Around Your Workflow',
     'tagline': (
-        'I design, build, deploy, and maintain custom websites and web applications '
-        'for organizations that need software tailored to their actual workflow.'
+        'I design, build, deploy, and maintain custom websites and web apps '
+        'that fit how your business actually works.'
     ),
     'summary': (
         'I turn business needs into practical, maintainable software. From discovery '

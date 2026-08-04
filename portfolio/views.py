@@ -39,7 +39,7 @@ def home(request):
         "dateModified": "2026-08-02",
     }
     seo = seo_context(
-        title="Custom Websites & Web Applications | Jonathan Dreksler",
+        title="Software Built Around Your Workflow | Jonathan Dreksler",
         description=description,
         path="/",
         content=SITE_CONTENT,

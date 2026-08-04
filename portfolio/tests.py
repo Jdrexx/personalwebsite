@@ -13,8 +13,8 @@ class PortfolioPagesTests(TestCase):
         response = self.client.get(reverse('portfolio:home'), secure=True)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Jonathan Dreksler')
-        self.assertContains(response, 'Custom Websites &amp; Web Applications')
-        self.assertContains(response, 'software tailored to their actual workflow')
+        self.assertContains(response, 'Software Built Around Your Workflow')
+        self.assertContains(response, 'fit how your business actually works')
 
     def test_home_typewriter_reserves_layout_and_remains_accessible(self):
         response = self.client.get(reverse('portfolio:home'), secure=True)
