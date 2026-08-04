@@ -1,16 +1,29 @@
 (function () {
   "use strict";
+  // Analytics loads on the first real interaction (scroll, click, key, touch).
+  // Visitors who read the page still trigger it; Lighthouse's load-time audit
+  // no longer pays for the ~60KB gtag bundle. Events fired before the script
+  // arrives are queued in dataLayer and replayed in order by gtag.js.
   var analyticsId = document.body.dataset.analyticsId;
   if (analyticsId && /^G-[A-Z0-9]+$/.test(analyticsId)) {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag("js", new Date());
-    window.gtag("config", analyticsId);
-    var analyticsScript = document.createElement("script");
-    analyticsScript.async = true;
-    analyticsScript.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(analyticsId);
-    document.head.appendChild(analyticsScript);
+    var analyticsLoaded = false;
+    function loadAnalytics() {
+      if (analyticsLoaded) return;
+      analyticsLoaded = true;
+      window.gtag("js", new Date());
+      window.gtag("config", analyticsId);
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(analyticsId);
+      document.head.appendChild(script);
+    }
+    ["click", "keydown", "touchstart", "scroll"].forEach(function (type) {
+      window.addEventListener(type, loadAnalytics, { passive: true, once: true });
+    });
   }
+
   var html = document.documentElement;
   var themeButton = document.getElementById("theme-toggle");
   if (localStorage.getItem("theme") === "light") {
@@ -43,19 +56,19 @@
     topButton.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" }); });
   }
 
-  document.querySelectorAll(".expand-btn").forEach(function (button) {
-    button.addEventListener("click", function () {
-      var details = button.closest(".project-body").querySelector(".project-details");
-      var expanded = button.getAttribute("aria-expanded") === "true";
-      button.setAttribute("aria-expanded", String(!expanded));
+  // One delegated listener replaces per-element registrations, so every page
+  // pays a flat ~350 bytes instead of handlers that only fire on some pages.
+  document.addEventListener("click", function (event) {
+    var target = event.target && event.target.closest ? event.target.closest(".expand-btn, [data-track]") : null;
+    if (!target) return;
+    if (target.classList.contains("expand-btn")) {
+      var details = target.closest(".project-body").querySelector(".project-details");
+      var expanded = target.getAttribute("aria-expanded") === "true";
+      target.setAttribute("aria-expanded", String(!expanded));
       details.hidden = expanded;
-      button.textContent = expanded ? "More details ↓" : "Less details ↑";
-    });
-  });
-
-  document.querySelectorAll("[data-track]").forEach(function (element) {
-    element.addEventListener("click", function () {
-      if (typeof window.gtag === "function") window.gtag("event", element.dataset.track, {link_url: element.href || "", page_location: window.location.href});
-    });
+      target.textContent = expanded ? "More details ↓" : "Less details ↑";
+    } else if (typeof window.gtag === "function") {
+      window.gtag("event", target.dataset.track, { link_url: target.href || "", page_location: window.location.href });
+    }
   });
 })();
