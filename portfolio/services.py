@@ -21,7 +21,7 @@ SERVICES = {
         "related": ["KnowledgeAssistant", "ScanExcel", "ServiceAssistant"],
     },
     "systems-integration": {
-        "name": "Custom Web Applications & Integration",
+        "name": "Custom Websites & Web Apps",
         "short": "Secure websites, web applications, API connections, and data pipelines tailored to how your organization works.",
         "description": "Custom website and web application development, including client portals, internal tools, APIs, operational dashboards, and secure business workflows.",
         "problem": "Operational data tends to become fragmented across spreadsheets, SaaS tools, inboxes, and line-of-business systems. Integration work should reduce duplicate entry without creating a fragile black box.",

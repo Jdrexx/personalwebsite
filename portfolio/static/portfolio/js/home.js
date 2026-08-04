@@ -17,9 +17,9 @@
   var output = document.getElementById("terminal-output");
   var commands = {
     help: "Available: about, projects, services, skills, help, clear",
-    about: "Custom websites and web applications — from discovery through deployment and support.",
+    about: "Custom websites and web apps — from discovery through deployment and support.",
     projects: "ArchPlanReview · ScanExcel · KnowledgeAssistant · JobCRM · ExpenseTracker · ServiceAssistant",
-    services: "Custom Web Applications · Workflow Automation · Technical Project Management",
+    services: "Custom Websites & Web Apps · Workflow Automation · Technical Project Management",
     skills: "Web Development, API Integration, Python, Django, Automation, Project Management"
   };
   if (input && output) input.addEventListener("keydown", function (event) {
