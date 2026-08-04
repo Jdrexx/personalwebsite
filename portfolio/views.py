@@ -27,19 +27,19 @@ def base_context(active="home", seo=None):
 
 def home(request):
     description = (
-        "Jonathan Dreksler designs, builds, deploys, and maintains custom websites "
-        "and web applications tailored to each client's users and workflow."
+        "Jonathan Dreksler designs, builds, and supports custom websites and AI "
+        "workflow automation for small businesses and service teams."
     )
     profile = {
         "@type": "ProfilePage",
         "@id": f"{settings.SITE_URL}/#profile",
         "url": settings.SITE_URL,
-        "name": "Jonathan Dreksler — Technical Project Manager",
+        "name": "Jonathan Dreksler — Websites & AI Automation",
         "mainEntity": {"@id": PERSON_ID},
-        "dateModified": "2026-08-02",
+        "dateModified": "2026-08-04",
     }
     seo = seo_context(
-        title="Software Built Around Your Workflow | Jonathan Dreksler",
+        title="Websites and AI Automation Built Around Your Business | Jonathan Dreksler",
         description=description,
         path="/",
         content=SITE_CONTENT,
@@ -50,10 +50,10 @@ def home(request):
 
 def resume(request):
     seo = seo_context(
-        title="Technical Project Manager Resume | Jonathan Dreksler",
+        title="Resume | Jonathan Dreksler — AI Automation & Web Development",
         description=(
-            "Resume for Jonathan Dreksler: technical project management, AI automation, "
-            "systems integration, software rollouts, operations, and Python/Django delivery."
+            "Resume for Jonathan Dreksler: AI workflow automation, custom websites, "
+            "client onboarding, customer service, and technical project delivery."
         ),
         path=reverse("portfolio:resume"),
         content=SITE_CONTENT,
@@ -78,10 +78,10 @@ def projects(request):
         if project.get("case_study")
     ]
     seo = seo_context(
-        title="Custom Software & Web Application Projects | Jonathan Dreksler",
+        title="AI Automation & Web Application Projects | Jonathan Dreksler",
         description=(
-            "Explore six detailed Python, Django, OCR, document-search, data, CRM, "
-            "and workflow-automation case studies built by Jonathan Dreksler."
+            "Six detailed case studies in AI automation, OCR, document search, data, "
+            "CRM, and productivity systems, built by Jonathan Dreksler."
         ),
         path=path,
         content=SITE_CONTENT,
@@ -110,10 +110,10 @@ def services(request):
         ],
     }
     seo = seo_context(
-        title="Custom Website & Software Services | Jonathan Dreksler",
+        title="AI Automation & Website Design Services | Jonathan Dreksler",
         description=(
-            "Custom websites, web applications, workflow automation, systems integration, "
-            "and technical project delivery for organizations."
+            "AI workflow automation, website design and development, customer service "
+            "systems, and technical project management for small businesses."
         ),
         path=path,
         content=SITE_CONTENT,
@@ -142,7 +142,7 @@ def service_detail(request, slug):
     }
     seo = seo_context(
         title=f"{service['name']} | Jonathan Dreksler",
-        description=service["description"],
+        description=service.get("seo_description", service["description"]),
         path=path,
         content=SITE_CONTENT,
         schemas=[service_schema, breadcrumbs([
@@ -163,10 +163,10 @@ def service_detail(request, slug):
 def contact(request):
     path = reverse("portfolio:contact")
     seo = seo_context(
-        title="Contact Jonathan Dreksler | Website & Software Projects",
+        title="Contact Jonathan Dreksler | AI Automation & Websites",
         description=(
-            "Contact Jonathan Dreksler about a custom website, web application, workflow "
-            "automation, systems integration, or technical delivery project."
+            "Contact Jonathan Dreksler about a custom website, AI workflow automation, "
+            "customer service system, or technical project."
         ),
         path=path,
         content=SITE_CONTENT,
@@ -207,7 +207,7 @@ def case_study(request, slug):
         "url": absolute_url(path),
         "image": image_url(f"portfolio/projects/{project['name'].lower()}.png"),
         "author": {"@id": PERSON_ID},
-        "dateModified": "2026-08-02",
+        "dateModified": "2026-08-04",
         "mainEntityOfPage": {"@id": f"{absolute_url(path)}#webpage"},
         "keywords": project["tech"],
     }

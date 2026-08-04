@@ -3,7 +3,7 @@
 {% block content %}
 <section class="hero section-shell">
   <div class="hero-copy">
-    <p class="eyebrow">{{ content.location }} · Contract website and software development</p>
+    <p class="eyebrow">{{ content.location }} · AI automation and web development for small businesses</p>
     <h1 class="typewriter" data-text="{{ content.headline }}">
       <span class="typewriter-sizer" aria-hidden="true">{{ content.headline }}</span>
       <span class="typewriter-animated" aria-hidden="true">{{ content.headline }}</span>
@@ -11,8 +11,8 @@
     </h1>
     <p class="lead">{{ content.tagline }}</p>
     <div class="hero-actions">
-      <a class="button primary" href="{% url 'portfolio:projects' %}">{{ content.cta.primary_label }}</a>
-      <a class="button secondary" href="{% url 'portfolio:services' %}">Explore Services</a>
+      <a class="button primary" href="{{ content.cta.primary_url }}">{{ content.cta.primary_label }}</a>
+      <a class="button secondary" href="{{ content.cta.secondary_url }}">{{ content.cta.secondary_label }}</a>
     </div>
   </div>
   <aside class="hero-visual" aria-hidden="true">
@@ -54,7 +54,7 @@
       <img class="project-screenshot" src="{% static 'portfolio/featured-work.png' %}" alt="A selection of Jonathan Dreksler's workflow automation projects" width="1440" height="757" loading="lazy" decoding="async">
     </picture>
   </div>
-  <div><p class="eyebrow">Featured Work</p><h2>Portfolio projects focused on real-world workflows.</h2><p class="section-text">Six detailed Python, automation, OCR, data, and productivity case studies with the decisions behind each build.</p><a class="text-link" href="{% url 'portfolio:projects' %}">Explore projects →</a></div>
+  <div><p class="eyebrow">Featured Work</p><h2>Portfolio projects focused on real-world workflows.</h2><p class="section-text">Case studies in AI automation, document search, OCR, data, and productivity systems, with the decisions behind each build.</p><a class="text-link" href="{% url 'portfolio:projects' %}">Explore projects →</a></div>
 </section>
 
 <section class="section-shell fade-in">

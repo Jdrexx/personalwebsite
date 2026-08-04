@@ -12,73 +12,67 @@ SITE_CONTENT = {
     'email': 'Jon@jdreksler.com',
     'phone': '(206) 659-9755',
     'github': 'https://github.com/Jdrexx',
-    'headline': 'Software Built Around Your Workflow',
+    'headline': 'Websites and AI automation built around your business',
     'tagline': (
-        'I design, build, deploy, and maintain custom websites and web apps '
-        'that fit how your business actually works.'
+        'I design, build, and support custom websites, web apps, and AI workflow '
+        'automation for small businesses and service teams. You get work that '
+        'saves your people time, plus a real person who answers when something '
+        'comes up.'
     ),
     'summary': (
-        'I turn business needs into practical, maintainable software. From discovery '
-        'and scope through development, deployment, and support, I keep the work '
-        'aligned with the people who will use it, the outcome it needs to produce, '
-        'and the client\'s budget and timeline. My background in computer science '
-        'and project management helps bridge technical decisions and business priorities.'
+        'Every project starts with listening. We talk through how your team actually '
+        'works, where the repetitive tasks eat the most time, and what done looks like '
+        'for your business. Then I design and build the website or automation that '
+        'fits, test it against real scenarios, and stay on after launch to support it. '
+        'Clients mention the follow-through most often. Good software matters, and so '
+        'does being easy to work with.'
+    ),
+    'resume_summary': (
+        'Project manager and technical consultant with a Computer Science degree and '
+        'experience spanning software rollouts, client-facing operations, and workflow '
+        'automation. Background in project management, system implementations, and '
+        'customer success across multiple industries.'
     ),
     'cta': {
         'primary_label': 'View Projects',
         'primary_url': '/projects/',
-        'secondary_label': 'Read Resume',
-        'secondary_url': '/resume/',
+        'secondary_label': 'Start a Conversation',
+        'secondary_url': '/contact/',
     },
     'status': {
         'emoji': '⚡',
-        'text': 'Available for contract website and software projects',
-        'link': '/projects/',
-        'link_label': 'See what I build',
+        'text': 'Available for AI automation and website projects',
+        'link': '/contact/',
+        'link_label': 'Say hello',
     },
     'metrics': [
         {'value': '20+', 'label': 'GitHub Projects'},
-        {'value': '4+', 'label': 'Years Experience'},
+        {'value': '12+', 'label': 'Years in Customer Service'},
         {'value': '30+', 'label': 'Tools & Technologies'},
         {'value': '5', 'label': 'Industries Served'},
     ],
-    'focus_areas': [
-        {
-            'title': 'Custom Websites & Web Apps',
-            'description': 'Responsive websites, client portals, internal tools, and business applications designed around real users and workflows.',
-        },
-        {
-            'title': 'Integration & Workflow Automation',
-            'description': 'APIs, data pipelines, and dependable automation that connect existing tools and reduce repetitive work.',
-        },
-        {
-            'title': 'Project Management & Operations',
-            'description': 'Scheduling, budgets, stakeholder coordination, risk tracking, process redesign — the boring stuff that makes or breaks a project.',
-        },
-    ],
     'skills': [
-        'Custom Web Applications', 'Responsive Website Development', 'API Integration',
-        'Process Automation', 'Systems Integration', 'Project Management',
-        'Risk Management', 'Change Management', 'Stakeholder Communication', 'Customer Success Management',
-        'Process Optimization', 'AI Governance & Security', 'Quality Control',
-        'Budget Management', 'Claude', 'Hermes', 'OpenAI API',
+        'AI Workflow Automation', 'Client Onboarding', 'Customer Success',
+        'Website Design & Development', 'Responsive Web Design', 'API Integration',
+        'Project Management', 'Process Automation', 'CRM Platforms', 'WordPress',
+        'Data Analysis', 'Process Improvement', 'Cross-Functional Coordination',
+        'OpenAI API', 'Claude', 'Hermes Agent', 'Ollama',
         'MCP / Tool-Calling Frameworks', 'Python', 'Django', 'GitHub', 'Ubuntu',
-        'WordPress', 'Google Suite', 'QuickBooks', 'Microsoft Office',
-        'ClickUp', 'Asana', 'MailChimp', 'Procore', 'Adobe Acrobat',
-        'Adobe Illustrator', 'Zendesk', 'Sage 50',
+        'Google Suite', 'QuickBooks', 'Microsoft Office', 'Zendesk',
+        'ClickUp', 'Asana', 'MailChimp', 'Procore', 'Adobe Illustrator',
     ],
     'experience': [
         {
             'company': 'Contract Technical Consultant',
-            'location': 'Various Locations, USA',
+            'location': 'Remote / USA',
             'role': 'Contract Technical Consultant',
             'dates': 'January 2026 – Present',
             'bullets': [
-                'Designed and deployed responsive websites integrated with business systems, managing full lifecycle from requirements gathering through testing and deployment across desktop and mobile.',
-                'Built automated data workflows for bookkeeping, transaction reconciliation, and financial reporting, reducing manual processing time and improving accuracy.',
+                'Designed and deployed responsive websites integrated with business systems, managing full lifecycle from requirements gathering through testing and deployment.',
+                'Built AI-assisted data workflows for bookkeeping, transaction reconciliation, and financial reporting using OpenAI and Claude APIs, reducing manual processing time and improving accuracy.',
                 'Engineered database cleanup and validation pipelines, improving data integrity and system reliability for client records.',
-                'Integrated digital tools and standardized workflows across platforms, reducing repetitive tasks and administrative overhead through process automation.',
-                'Maintained clear client communication, gathered requirements, and adjusted priorities to keep work aligned with budgets, timelines, and business objectives.',
+                'Integrated AI tools (OpenAI, Claude, Hermes Agent, local Ollama models) and standardized workflows across platforms, reducing repetitive tasks and administrative overhead through process automation.',
+                'Maintained client communication, gathered requirements, and adjusted priorities to keep work aligned with budgets, timelines, and business objectives.',
             ],
         },
         {
@@ -88,11 +82,10 @@ SITE_CONTENT = {
             'dates': 'August 2024 – June 2025',
             'bullets': [
                 'Coordinated multi-stakeholder installation projects, integrating scheduling systems and vendor coordination workflows to meet build deadlines.',
-                'Managed budgets and cost tracking systems, implementing detailed reconciliations for accuracy and compliance across all project phases.',
-                'Optimized project workflows through systematic process improvements, reducing delays and subcontractor friction.',
+                'Managed budgets and cost tracking systems, implementing reconciliations for accuracy and compliance across all project phases.',
+                'Optimized project workflows through systematic process improvements, helping reduce delays and subcontractor friction.',
                 'Led cross-functional communication between clients, trade partners, and internal teams, ensuring alignment on milestones and deliverables.',
-                'Implemented risk identification and mitigation strategies, ensuring on-time, on-budget delivery across concurrent projects.',
-                'Conducted quality inspections and addressed issues immediately, reducing rework and maintaining contractual standards.',
+                'Conducted quality inspections and addressed issues promptly, helping maintain contractual standards across concurrent projects.',
             ],
         },
         {
@@ -101,33 +94,33 @@ SITE_CONTENT = {
             'role': 'Project Manager',
             'dates': 'March 2021 – August 2024',
             'bullets': [
-                'Led company-wide software rollout achieving 100% team adoption through structured training programs, change management, and hands-on user support.',
-                'Built and maintained company eCommerce platform on WordPress, integrating product listings, payment systems, and order fulfillment workflows.',
-                'Analyzed production data to identify bottlenecks and implemented process redesign that compressed timelines by 1 week during peak demand.',
-                'Directed vendor coordination, inventory management, and production scheduling, boosting overall output by 15%.',
-                'Created data-driven stakeholder presentations by analyzing project metrics and visualizing key insights for faster decision-making.',
+                'Led company-wide software rollout achieving full team adoption through structured training, change management, and hands-on user support.',
+                'Built and maintained eCommerce platform on WordPress, integrating product listings, payment systems, and order fulfillment workflows.',
+                'Analyzed production data to identify bottlenecks and implemented process changes that helped compress timelines during peak demand.',
+                'Directed vendor coordination, inventory management, and production scheduling that contributed to increased overall output.',
+                'Created data-driven stakeholder presentations, analyzing project metrics and visualizing key insights for decision-making.',
             ],
         },
         {
             'company': 'Supertutor Media, Inc.',
             'location': 'Los Angeles, CA',
-            'role': 'Office Manager',
+            'role': 'Project Manager',
             'dates': 'April 2019 – February 2021',
             'bullets': [
                 'Integrated Excel-based tracking systems with automated email campaigns, enhancing data accuracy and response times across operations.',
                 'Self-studied tax code to resolve complex payroll compliance issues, achieving full regulatory compliance and avoiding penalties.',
-                'Detected and reported fraudulent transactions through systematic financial monitoring, preventing thousands in losses.',
-                'Maintained website content and coordinated targeted email marketing campaigns, raising user engagement and retention.',
+                'Detected and reported fraudulent transactions through systematic financial monitoring, helping prevent losses.',
+                'Maintained website content and coordinated targeted email marketing campaigns, supporting user engagement and retention efforts.',
             ],
         },
         {
             'company': 'Various Positions',
             'location': 'California',
-            'role': 'Customer Service Representative',
+            'role': 'Office Manager / Customer Service Representative',
             'dates': 'May 2007 – April 2019',
             'bullets': [
-                'Managed customer needs and coordinated staff priorities across diverse retail and service environments, consistently achieving company-wide sales goals.',
-                'Trained and onboarded new employees with structured orientation programs, accelerating team readiness and productivity.',
+                'Managed customer needs and coordinated staff priorities across retail and service environments, consistently working toward company sales goals.',
+                'Trained and onboarded new employees with structured orientation programs, helping accelerate team readiness and productivity.',
             ],
         },
     ],

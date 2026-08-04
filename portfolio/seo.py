@@ -61,7 +61,7 @@ def seo_context(*, title, description, path, content, image=None, page_type="Web
             "@type": "WebSite",
             "@id": SITE_ID,
             "url": settings.SITE_URL,
-            "name": f"{content['name']} — Technical Portfolio",
+            "name": f"{content['name']} — Websites & AI Automation",
             "inLanguage": "en-US",
             "publisher": {"@id": PERSON_ID},
         },

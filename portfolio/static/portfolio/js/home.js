@@ -17,10 +17,10 @@
   var output = document.getElementById("terminal-output");
   var commands = {
     help: "Available: about, projects, services, skills, help, clear",
-    about: "Custom websites and web apps — from discovery through deployment and support.",
+    about: "Custom websites, web apps, and AI workflow automation, from discovery through deployment and support.",
     projects: "ArchPlanReview · ScanExcel · KnowledgeAssistant · JobCRM · ExpenseTracker · ServiceAssistant",
-    services: "Custom Websites & Web Apps · Workflow Automation · Technical Project Management",
-    skills: "Web Development, API Integration, Python, Django, Automation, Project Management"
+    services: "AI Workflow Automation · Website Design & Development · Customer Service & Client Support · Technical Project Management",
+    skills: "AI Workflow Automation, Web Development, Python, Django, API Integration, Client Onboarding"
   };
   if (input && output) input.addEventListener("keydown", function (event) {
     if (event.key !== "Enter" || !input.value.trim()) return;

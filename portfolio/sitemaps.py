@@ -10,7 +10,7 @@ from .content import SITE_CONTENT
 from .services import SERVICES
 
 
-LAST_CONTENT_UPDATE = date(2026, 8, 2)
+LAST_CONTENT_UPDATE = date(2026, 8, 4)
 
 
 class CanonicalSitemap(Sitemap):
