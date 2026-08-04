@@ -44,7 +44,7 @@ SITE_CONTENT = {
     ],
     'focus_areas': [
         {
-            'title': 'Custom Websites & Web Applications',
+            'title': 'Custom Websites & Web Apps',
             'description': 'Responsive websites, client portals, internal tools, and business applications designed around real users and workflows.',
         },
         {
