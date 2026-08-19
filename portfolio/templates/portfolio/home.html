@@ -54,7 +54,13 @@
       <img class="project-screenshot" src="{% static 'portfolio/featured-work.png' %}" alt="A selection of Jonathan Dreksler's workflow automation projects" width="1440" height="757" loading="lazy" decoding="async">
     </picture>
   </div>
-  <div><p class="eyebrow">Featured Work</p><h2>Portfolio projects focused on real-world workflows.</h2><p class="section-text">Case studies in AI automation, document search, OCR, data, and productivity systems, with the decisions behind each build.</p><a class="text-link" href="{% url 'portfolio:projects' %}">Explore projects →</a></div>
+  <div><p class="eyebrow">Featured Work</p><h2>Portfolio projects focused on real-world workflows.</h2><p class="section-text">Case studies in AI automation, document search, OCR, data, and productivity systems, with the decisions behind each build.</p>
+    <ul class="featured-case-links">
+      <li><a href="{% url 'portfolio:case_study' slug='scanexcel' %}">ScanExcel — receipts and invoices to spreadsheet rows</a></li>
+      <li><a href="{% url 'portfolio:case_study' slug='knowledgeassistant' %}">KnowledgeAssistant — internal docs you can actually search</a></li>
+      <li><a href="{% url 'portfolio:case_study' slug='jobcrm' %}">JobCRM — a job search pipeline that never drops a follow-up</a></li>
+    </ul>
+    <a class="text-link" href="{% url 'portfolio:projects' %}">Explore all projects →</a></div>
 </section>
 
 <section class="section-shell fade-in">

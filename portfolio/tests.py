@@ -82,6 +82,42 @@ class PortfolioPagesTests(TestCase):
         response = self.client.get(reverse('portfolio:case_study', kwargs={'slug': 'nonexistent'}), secure=True)
         self.assertEqual(response.status_code, 404)
 
+    def test_case_study_hyphenated_variant_redirects_to_canonical(self):
+        response = self.client.get('/case-study/arch-plan-review/', secure=True)
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(response['Location'], '/case-study/archplanreview/')
+
+    def test_case_study_mixed_case_variant_redirects_to_canonical(self):
+        response = self.client.get('/case-study/ArchPlanReview/', secure=True)
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(response['Location'], '/case-study/archplanreview/')
+
+    def test_case_study_canonical_slug_serves_200(self):
+        response = self.client.get('/case-study/archplanreview/', secure=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'rel="canonical" href="https://jdreksler.com/case-study/archplanreview/"')
+
+    def test_legacy_urls_permanently_redirect(self):
+        expected = {
+            '/index.html': '/',
+            '/portfolio/': '/projects/',
+            '/about/': '/',
+            '/blog/': '/',
+            '/hire-me/': '/contact/',
+        }
+        for old, target in expected.items():
+            with self.subTest(old=old):
+                response = self.client.get(old, secure=True)
+                self.assertEqual(response.status_code, 301)
+                self.assertEqual(response['Location'], target)
+
+    def test_home_links_directly_to_case_studies(self):
+        response = self.client.get(reverse('portfolio:home'), secure=True)
+        self.assertContains(response, 'featured-case-links')
+        self.assertContains(response, '/case-study/scanexcel/')
+        self.assertContains(response, '/case-study/knowledgeassistant/')
+        self.assertContains(response, '/case-study/jobcrm/')
+
     def test_thanks_page_loads(self):
         response = self.client.get(reverse('portfolio:thanks'), secure=True)
         self.assertEqual(response.status_code, 200)

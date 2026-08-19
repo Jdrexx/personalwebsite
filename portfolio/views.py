@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -36,7 +36,7 @@ def home(request):
         "url": settings.SITE_URL,
         "name": "Jonathan Dreksler — Websites & AI Automation",
         "mainEntity": {"@id": PERSON_ID},
-        "dateModified": "2026-08-04",
+        "dateModified": "2026-08-18",
     }
     seo = seo_context(
         title="Websites and AI Automation Built Around Your Business | Jonathan Dreksler",
@@ -195,7 +195,15 @@ def case_study(request, slug):
     )
     if not project or not project.get("case_study"):
         raise Http404("Case study not found")
-    path = reverse("portfolio:case_study", kwargs={"slug": project["name"].lower()})
+    # Only the canonical slug may serve the page. Variants (hyphenated or
+    # mixed-case URLs from older versions of the site) 301 to the canonical
+    # URL so Google never sees a near-duplicate "alternate page".
+    canonical_slug = project["name"].lower()
+    if slug != canonical_slug:
+        return HttpResponsePermanentRedirect(
+            reverse("portfolio:case_study", kwargs={"slug": canonical_slug})
+        )
+    path = reverse("portfolio:case_study", kwargs={"slug": slug})
     # Keep search and social snippets concise while letting the visible page carry
     # the full problem, workflow, decisions, results, and roadmap narrative.
     description = f"{project['name']} case study: {project['description']}"
@@ -207,7 +215,7 @@ def case_study(request, slug):
         "url": absolute_url(path),
         "image": image_url(f"portfolio/projects/{project['name'].lower()}.png"),
         "author": {"@id": PERSON_ID},
-        "dateModified": "2026-08-04",
+        "dateModified": "2026-08-18",
         "mainEntityOfPage": {"@id": f"{absolute_url(path)}#webpage"},
         "keywords": project["tech"],
     }
