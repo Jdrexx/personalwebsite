@@ -17,3 +17,6 @@ media/uploads/*
 Thumbs.db
 .vscode/
 .idea/
+.procoder/state/
+.procoder/index/
+.lycheecache
