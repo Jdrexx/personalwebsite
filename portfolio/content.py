@@ -65,7 +65,7 @@ SITE_CONTENT = {
         {
             'company': 'Sazzco',
             'location': 'Remote / USA',
-            'role': 'Contract Technical Consultant',
+            'role': 'Technical Project Manager',
             'dates': 'January 2026 – Present',
             'bullets': [
                 'Designed and deployed responsive websites integrated with business systems, managing full lifecycle from requirements gathering through testing and deployment.',
