@@ -63,7 +63,7 @@ SITE_CONTENT = {
     ],
     'experience': [
         {
-            'company': 'Contract Technical Consultant',
+            'company': 'Sazzco',
             'location': 'Remote / USA',
             'role': 'Contract Technical Consultant',
             'dates': 'January 2026 – Present',
