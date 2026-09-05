@@ -10,7 +10,7 @@ SITE_CONTENT = {
     "name": "Jonathan Dreksler",
     "location": "Kenmore, WA",
     "email": "Jon@jdreksler.com",
-    "phone": "(206) 659-9755",
+    "phone": "(310) 497-8153",
     "github": "https://github.com/Jdrexx",
     "headline": "Technical Implementation & Customer Success",
     "tagline": (
