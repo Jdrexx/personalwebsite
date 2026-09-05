@@ -7,7 +7,9 @@
   var analyticsId = document.body.dataset.analyticsId;
   if (analyticsId && /^G-[A-Z0-9]+$/.test(analyticsId)) {
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag = function () {
+      window.dataLayer.push(arguments);
+    };
     var analyticsLoaded = false;
     function loadAnalytics() {
       if (analyticsLoaded) return;
@@ -16,11 +18,16 @@
       window.gtag("config", analyticsId);
       var script = document.createElement("script");
       script.async = true;
-      script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(analyticsId);
+      script.src =
+        "https://www.googletagmanager.com/gtag/js?id=" +
+        encodeURIComponent(analyticsId);
       document.head.appendChild(script);
     }
     ["click", "keydown", "touchstart", "scroll"].forEach(function (type) {
-      window.addEventListener(type, loadAnalytics, { passive: true, once: true });
+      window.addEventListener(type, loadAnalytics, {
+        passive: true,
+        once: true,
+      });
     });
   }
 
@@ -30,45 +37,75 @@
     html.setAttribute("data-theme", "light");
     if (themeButton) themeButton.textContent = "☀️";
   }
-  if (themeButton) themeButton.addEventListener("click", function () {
-    var isLight = html.getAttribute("data-theme") === "light";
-    if (isLight) html.removeAttribute("data-theme"); else html.setAttribute("data-theme", "light");
-    themeButton.textContent = isLight ? "🌙" : "☀️";
-    localStorage.setItem("theme", isLight ? "" : "light");
-  });
+  if (themeButton)
+    themeButton.addEventListener("click", function () {
+      var isLight = html.getAttribute("data-theme") === "light";
+      if (isLight) html.removeAttribute("data-theme");
+      else html.setAttribute("data-theme", "light");
+      themeButton.textContent = isLight ? "🌙" : "☀️";
+      localStorage.setItem("theme", isLight ? "" : "light");
+    });
 
-  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
   var animated = document.querySelectorAll(".fade-in");
   if (reducedMotion || !("IntersectionObserver" in window)) {
-    animated.forEach(function (element) { element.classList.add("visible"); });
+    animated.forEach(function (element) {
+      element.classList.add("visible");
+    });
   } else {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); }
-      });
-    }, { threshold: 0.15 });
-    animated.forEach(function (element) { observer.observe(element); });
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+    animated.forEach(function (element) {
+      observer.observe(element);
+    });
   }
 
   var topButton = document.getElementById("back-to-top");
   if (topButton) {
-    window.addEventListener("scroll", function () { topButton.classList.toggle("visible", window.scrollY > 300); }, { passive: true });
-    topButton.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" }); });
+    window.addEventListener(
+      "scroll",
+      function () {
+        topButton.classList.toggle("visible", window.scrollY > 300);
+      },
+      { passive: true },
+    );
+    topButton.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+    });
   }
 
   // One delegated listener replaces per-element registrations, so every page
   // pays a flat ~350 bytes instead of handlers that only fire on some pages.
   document.addEventListener("click", function (event) {
-    var target = event.target && event.target.closest ? event.target.closest(".expand-btn, [data-track]") : null;
+    var target =
+      event.target && event.target.closest
+        ? event.target.closest(".expand-btn, [data-track]")
+        : null;
     if (!target) return;
     if (target.classList.contains("expand-btn")) {
-      var details = target.closest(".project-body").querySelector(".project-details");
+      var details = target
+        .closest(".project-body")
+        .querySelector(".project-details");
       var expanded = target.getAttribute("aria-expanded") === "true";
       target.setAttribute("aria-expanded", String(!expanded));
       details.hidden = expanded;
       target.textContent = expanded ? "More details ↓" : "Less details ↑";
     } else if (typeof window.gtag === "function") {
-      window.gtag("event", target.dataset.track, { link_url: target.href || "", page_location: window.location.href });
+      window.gtag("event", target.dataset.track, {
+        link_url: target.href || "",
+        page_location: window.location.href,
+      });
     }
   });
 })();

@@ -14,12 +14,29 @@ SERVICES = {
             "Deployment, plain-English documentation, and a training plan your team will actually use",
         ],
         "process": [
-            ("Discover", "Map inputs, owners, exceptions, and the outcome that matters most."),
-            ("Design", "Reach for deterministic rules first; use AI where language and ambiguity require it."),
-            ("Build", "Ship a narrow working slice with logging, validation, and human checkpoints."),
-            ("Operationalize", "Test with real scenarios, document ownership, and measure time or errors saved."),
+            (
+                "Discover",
+                "Map inputs, owners, exceptions, and the outcome that matters most.",
+            ),
+            (
+                "Design",
+                "Reach for deterministic rules first; use AI where language and ambiguity require it.",
+            ),
+            (
+                "Build",
+                "Ship a narrow working slice with logging, validation, and human checkpoints.",
+            ),
+            (
+                "Operationalize",
+                "Test with real scenarios, document ownership, and measure time or errors saved.",
+            ),
         ],
-        "related": ["KnowledgeAssistant", "ScanExcel", "ServiceAssistant", "ExpenseTracker"],
+        "related": [
+            "KnowledgeAssistant",
+            "ScanExcel",
+            "ServiceAssistant",
+            "ExpenseTracker",
+        ],
     },
     "systems-integration": {
         "name": "Website Design & Development",
@@ -34,10 +51,22 @@ SERVICES = {
             "Training and written instructions so your team can make updates without me",
         ],
         "process": [
-            ("Discover", "Talk through goals, audience, and what the site has to do for the business."),
-            ("Design", "Structure the content, map the pages, and build a clean interface."),
-            ("Build", "Develop a responsive, fast site with SEO, security, and accessibility in place."),
-            ("Launch & Support", "Deploy, connect integrations, train your team, and stay available after launch."),
+            (
+                "Discover",
+                "Talk through goals, audience, and what the site has to do for the business.",
+            ),
+            (
+                "Design",
+                "Structure the content, map the pages, and build a clean interface.",
+            ),
+            (
+                "Build",
+                "Develop a responsive, fast site with SEO, security, and accessibility in place.",
+            ),
+            (
+                "Launch & Support",
+                "Deploy, connect integrations, train your team, and stay available after launch.",
+            ),
         ],
         "related": ["JobCRM", "ArchPlanReview", "ServiceAssistant"],
     },
@@ -54,10 +83,22 @@ SERVICES = {
             "A clear boundary between what the automation handles and where a human takes over",
         ],
         "process": [
-            ("Listen", "Map the questions, complaints, and requests your customers actually bring."),
-            ("Automate", "Handle the routine requests with AI and rules, with answers that sound like you."),
-            ("Escalate", "Route anything uncertain to the right person, fast, with context attached."),
-            ("Care", "Review what comes through, tune the system, and keep improving response times."),
+            (
+                "Listen",
+                "Map the questions, complaints, and requests your customers actually bring.",
+            ),
+            (
+                "Automate",
+                "Handle the routine requests with AI and rules, with answers that sound like you.",
+            ),
+            (
+                "Escalate",
+                "Route anything uncertain to the right person, fast, with context attached.",
+            ),
+            (
+                "Care",
+                "Review what comes through, tune the system, and keep improving response times.",
+            ),
         ],
         "related": ["ServiceAssistant", "KnowledgeAssistant", "JobCRM"],
     },
@@ -74,10 +115,22 @@ SERVICES = {
             "Rollout, training, adoption, and post-launch measurement plans",
         ],
         "process": [
-            ("Frame", "Align the business outcome, constraints, stakeholders, and definition of done."),
-            ("Plan", "Sequence dependencies, surface risks, and assign accountable owners."),
-            ("Deliver", "Run a concise communication and decision cadence while protecting quality."),
-            ("Adopt", "Support rollout, training, feedback, and measurement after launch."),
+            (
+                "Frame",
+                "Align the business outcome, constraints, stakeholders, and definition of done.",
+            ),
+            (
+                "Plan",
+                "Sequence dependencies, surface risks, and assign accountable owners.",
+            ),
+            (
+                "Deliver",
+                "Run a concise communication and decision cadence while protecting quality.",
+            ),
+            (
+                "Adopt",
+                "Support rollout, training, feedback, and measurement after launch.",
+            ),
         ],
         "related": ["JobCRM", "ServiceAssistant", "ArchPlanReview"],
     },

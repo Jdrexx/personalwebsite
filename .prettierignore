@@ -1,0 +1,3 @@
+portfolio/templates/**
+templates/404.html
+templates/500.html

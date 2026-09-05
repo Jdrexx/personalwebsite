@@ -1,9 +1,9 @@
 # Jonathan Dreksler — Personal Website
 
-[![Django](https://img.shields.io/badge/Django-5.2-092E20?logo=django&logoColor=white)](https://www.djangoproject.com/)
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/Django-6.0-092E20?logo=django&logoColor=white)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
-Personal portfolio site — Django 5.2, dark theme, responsive. Deployed on Railway.
+Personal portfolio site — Django 6.0, dark theme, responsive. Deployed on Railway.
 
 - **docs/SECURITY.md** — CWE audit history and security controls documentation
 - **docs/SEO.md** — SEO architecture, content rules, release checks, and measurement cadence

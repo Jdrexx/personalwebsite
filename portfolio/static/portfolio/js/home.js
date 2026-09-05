@@ -1,6 +1,8 @@
 (function () {
   "use strict";
-  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
   var heading = document.querySelector(".typewriter");
   if (heading && !reducedMotion) {
     var text = heading.dataset.text || heading.textContent;
@@ -9,7 +11,10 @@
     animatedText.textContent = "";
     var index = 0;
     function typeNext() {
-      if (index < text.length) { animatedText.textContent += text.charAt(index++); window.setTimeout(typeNext, 45); }
+      if (index < text.length) {
+        animatedText.textContent += text.charAt(index++);
+        window.setTimeout(typeNext, 45);
+      }
     }
     window.setTimeout(typeNext, 250);
   }
@@ -17,21 +22,38 @@
   var output = document.getElementById("terminal-output");
   var commands = {
     help: "Available: about, projects, services, skills, help, clear",
-    about: "Custom websites, web apps, and AI workflow automation, from discovery through deployment and support.",
-    projects: "ArchPlanReview · ScanExcel · KnowledgeAssistant · JobCRM · ExpenseTracker · ServiceAssistant",
-    services: "AI Workflow Automation · Website Design & Development · Customer Service & Client Support · Technical Project Management",
-    skills: "AI Workflow Automation, Web Development, Python, Django, API Integration, Client Onboarding"
+    about:
+      "Custom websites, web apps, and AI workflow automation, from discovery through deployment and support.",
+    projects:
+      "ArchPlanReview · ScanExcel · KnowledgeAssistant · JobCRM · ExpenseTracker · ServiceAssistant",
+    services:
+      "AI Workflow Automation · Website Design & Development · Customer Service & Client Support · Technical Project Management",
+    skills:
+      "AI Workflow Automation, Web Development, Python, Django, API Integration, Client Onboarding",
   };
-  if (input && output) input.addEventListener("keydown", function (event) {
-    if (event.key !== "Enter" || !input.value.trim()) return;
-    var command = input.value.trim().toLowerCase();
-    if (command === "clear") { output.textContent = ""; input.value = ""; return; }
-    var line = document.createElement("div"); line.className = "terminal-line";
-    var prompt = document.createElement("span"); prompt.className = "prompt"; prompt.textContent = "jon@portfolio:~$ ";
-    var value = document.createElement("span"); value.className = "cmd"; value.textContent = command;
-    line.append(prompt, value);
-    var response = document.createElement("div"); response.className = "terminal-line output";
-    response.textContent = commands[command] || "Unknown command. Try: help";
-    output.append(line, response); output.scrollTop = output.scrollHeight; input.value = "";
-  });
+  if (input && output)
+    input.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" || !input.value.trim()) return;
+      var command = input.value.trim().toLowerCase();
+      if (command === "clear") {
+        output.textContent = "";
+        input.value = "";
+        return;
+      }
+      var line = document.createElement("div");
+      line.className = "terminal-line";
+      var prompt = document.createElement("span");
+      prompt.className = "prompt";
+      prompt.textContent = "jon@portfolio:~$ ";
+      var value = document.createElement("span");
+      value.className = "cmd";
+      value.textContent = command;
+      line.append(prompt, value);
+      var response = document.createElement("div");
+      response.className = "terminal-line output";
+      response.textContent = commands[command] || "Unknown command. Try: help";
+      output.append(line, response);
+      output.scrollTop = output.scrollHeight;
+      input.value = "";
+    });
 })();

@@ -53,8 +53,17 @@ def breadcrumbs(items):
     }
 
 
-def seo_context(*, title, description, path, content, image=None, page_type="WebPage",
-                robots="index,follow,max-image-preview:large", schemas=None):
+def seo_context(
+    *,
+    title,
+    description,
+    path,
+    content,
+    image=None,
+    page_type="WebPage",
+    robots="index,follow,max-image-preview:large",
+    schemas=None,
+):
     canonical = absolute_url(path)
     graph = [
         {

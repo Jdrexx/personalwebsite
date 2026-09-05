@@ -58,9 +58,10 @@ def resume(request):
         path=reverse("portfolio:resume"),
         content=SITE_CONTENT,
         image=image_url("portfolio/me.jpg"),
-        schemas=[person_schema(SITE_CONTENT), breadcrumbs([
-            ("Home", "/"), ("Resume", reverse("portfolio:resume"))
-        ])],
+        schemas=[
+            person_schema(SITE_CONTENT),
+            breadcrumbs([("Home", "/"), ("Resume", reverse("portfolio:resume"))]),
+        ],
     )
     return render(request, "portfolio/resume.html", base_context("resume", seo))
 
@@ -71,7 +72,11 @@ def projects(request):
         {
             "@type": "ListItem",
             "position": index,
-            "url": absolute_url(reverse("portfolio:case_study", kwargs={"slug": project["name"].lower()})),
+            "url": absolute_url(
+                reverse(
+                    "portfolio:case_study", kwargs={"slug": project["name"].lower()}
+                )
+            ),
             "name": project["name"],
         }
         for index, project in enumerate(SITE_CONTENT["projects"], start=1)
@@ -87,7 +92,11 @@ def projects(request):
         content=SITE_CONTENT,
         page_type="CollectionPage",
         schemas=[
-            {"@type": "ItemList", "name": "Selected technical projects", "itemListElement": project_items},
+            {
+                "@type": "ItemList",
+                "name": "Selected technical projects",
+                "itemListElement": project_items,
+            },
             breadcrumbs([("Home", "/"), ("Projects", path)]),
         ],
     )
@@ -104,7 +113,9 @@ def services(request):
                 "@type": "ListItem",
                 "position": index,
                 "name": service["name"],
-                "url": absolute_url(reverse("portfolio:service_detail", kwargs={"slug": slug})),
+                "url": absolute_url(
+                    reverse("portfolio:service_detail", kwargs={"slug": slug})
+                ),
             }
             for index, (slug, service) in enumerate(SERVICES.items(), start=1)
         ],
@@ -129,7 +140,9 @@ def service_detail(request, slug):
         raise Http404("Service not found")
     path = reverse("portfolio:service_detail", kwargs={"slug": slug})
     related_projects = [
-        project for project in SITE_CONTENT["projects"] if project["name"] in service["related"]
+        project
+        for project in SITE_CONTENT["projects"]
+        if project["name"] in service["related"]
     ]
     service_schema = {
         "@type": "Service",
@@ -145,11 +158,16 @@ def service_detail(request, slug):
         description=service.get("seo_description", service["description"]),
         path=path,
         content=SITE_CONTENT,
-        schemas=[service_schema, breadcrumbs([
-            ("Home", "/"),
-            ("Services", reverse("portfolio:services")),
-            (service["name"], path),
-        ])],
+        schemas=[
+            service_schema,
+            breadcrumbs(
+                [
+                    ("Home", "/"),
+                    ("Services", reverse("portfolio:services")),
+                    (service["name"], path),
+                ]
+            ),
+        ],
     )
     context = {
         **base_context("services", seo),
@@ -173,7 +191,11 @@ def contact(request):
         schemas=[breadcrumbs([("Home", "/"), ("Contact", path)])],
     )
     sent = request.method == "POST"
-    return render(request, "portfolio/contact.html", {**base_context("contact", seo), "sent": sent})
+    return render(
+        request,
+        "portfolio/contact.html",
+        {**base_context("contact", seo), "sent": sent},
+    )
 
 
 def thanks(request):
@@ -190,7 +212,11 @@ def thanks(request):
 def case_study(request, slug):
     normalized_slug = slug.lower().replace("-", "")
     project = next(
-        (p for p in SITE_CONTENT.get("projects", []) if p["name"].lower() == normalized_slug),
+        (
+            p
+            for p in SITE_CONTENT.get("projects", [])
+            if p["name"].lower() == normalized_slug
+        ),
         None,
     )
     if not project or not project.get("case_study"):
@@ -226,25 +252,38 @@ def case_study(request, slug):
         content=SITE_CONTENT,
         image=article["image"],
         page_type="TechArticle",
-        schemas=[article, breadcrumbs([
-            ("Home", "/"),
-            ("Projects", reverse("portfolio:projects")),
-            (project["name"], path),
-        ])],
+        schemas=[
+            article,
+            breadcrumbs(
+                [
+                    ("Home", "/"),
+                    ("Projects", reverse("portfolio:projects")),
+                    (project["name"], path),
+                ]
+            ),
+        ],
     )
-    return render(request, "portfolio/case_study.html", {
-        **base_context("projects", seo), "project": project, "cs": project["case_study"]
-    })
+    return render(
+        request,
+        "portfolio/case_study.html",
+        {
+            **base_context("projects", seo),
+            "project": project,
+            "cs": project["case_study"],
+        },
+    )
 
 
 def robots_txt(request):
-    body = "\n".join([
-        "User-agent: *",
-        "Allow: /",
-        "Disallow: /admin/",
-        f"Sitemap: {settings.SITE_URL}/sitemap.xml",
-        "",
-    ])
+    body = "\n".join(
+        [
+            "User-agent: *",
+            "Allow: /",
+            "Disallow: /admin/",
+            f"Sitemap: {settings.SITE_URL}/sitemap.xml",
+            "",
+        ]
+    )
     return HttpResponse(body, content_type="text/plain; charset=utf-8")
 
 

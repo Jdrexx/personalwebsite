@@ -66,7 +66,9 @@ class CaseStudySitemap(CanonicalSitemap):
     changefreq = "monthly"
 
     def items(self):
-        return [project for project in SITE_CONTENT["projects"] if project.get("case_study")]
+        return [
+            project for project in SITE_CONTENT["projects"] if project.get("case_study")
+        ]
 
     def location(self, project):
         return reverse("portfolio:case_study", kwargs={"slug": project["name"].lower()})
