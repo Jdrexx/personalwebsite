@@ -33,17 +33,23 @@
 
   var html = document.documentElement;
   var themeButton = document.getElementById("theme-toggle");
-  if (localStorage.getItem("theme") === "light") {
-    html.setAttribute("data-theme", "light");
-    if (themeButton) themeButton.textContent = "☀️";
+  // Initial theme is applied by theme-init.js in <head> (pre-paint). This
+  // side only keeps the button icon in sync and handles the toggle.
+  function syncThemeIcon() {
+    if (themeButton) {
+      themeButton.textContent =
+        html.getAttribute("data-theme") === "light" ? "☀️" : "🌙";
+    }
   }
+  syncThemeIcon();
   if (themeButton)
     themeButton.addEventListener("click", function () {
       var isLight = html.getAttribute("data-theme") === "light";
-      if (isLight) html.removeAttribute("data-theme");
-      else html.setAttribute("data-theme", "light");
-      themeButton.textContent = isLight ? "🌙" : "☀️";
-      localStorage.setItem("theme", isLight ? "" : "light");
+      var next = isLight ? "dark" : "light";
+      html.setAttribute("data-theme", next);
+      html.style.colorScheme = next;
+      localStorage.setItem("theme", next);
+      themeButton.textContent = next === "light" ? "☀️" : "🌙";
     });
 
   var reducedMotion = window.matchMedia(

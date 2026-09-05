@@ -426,14 +426,17 @@ h3 {
 }
 
 /* ── Scroll animations ─────────────────────────────────────────────── */
-.fade-in {
+/* Hidden until JS proves itself: the `js` class is set synchronously by
+   theme-init.js in <head>. Without JS this selector never matches, so a
+   no-JS visitor sees content instead of a blank page. */
+html.js .fade-in {
   opacity: 0;
   transform: translateY(24px);
   transition:
     opacity 0.6s ease,
     transform 0.6s ease;
 }
-.fade-in.visible {
+html.js .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1319,7 +1322,8 @@ h3 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .fade-in {
+  .fade-in,
+  html.js .fade-in {
     opacity: 1;
     transform: none;
   }

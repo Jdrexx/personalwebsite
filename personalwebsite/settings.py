@@ -201,6 +201,10 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    # Deliberate business choice over Django's same-origin default: this is a
+    # portfolio whose job is generating attributable outbound interest, so
+    # clicks to GitHub/LinkedIn should carry the origin (but never the path).
+    SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 
     CSRF_TRUSTED_ORIGINS = [
         origin.strip()

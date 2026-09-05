@@ -1,4 +1,3 @@
-from datetime import date
 from types import SimpleNamespace
 from urllib.parse import urlparse
 
@@ -8,9 +7,6 @@ from django.urls import reverse
 
 from .content import SITE_CONTENT
 from .services import SERVICES
-
-
-LAST_CONTENT_UPDATE = date(2026, 8, 18)
 
 
 class CanonicalSitemap(Sitemap):
@@ -41,9 +37,6 @@ class StaticSitemap(CanonicalSitemap):
     def changefreq(self, item):
         return "weekly" if item in {"home", "projects"} else "monthly"
 
-    def lastmod(self, item):
-        return LAST_CONTENT_UPDATE
-
 
 class ServiceSitemap(CanonicalSitemap):
     protocol = "https"
@@ -55,9 +48,6 @@ class ServiceSitemap(CanonicalSitemap):
 
     def location(self, slug):
         return reverse("portfolio:service_detail", kwargs={"slug": slug})
-
-    def lastmod(self, slug):
-        return LAST_CONTENT_UPDATE
 
 
 class CaseStudySitemap(CanonicalSitemap):
@@ -72,6 +62,3 @@ class CaseStudySitemap(CanonicalSitemap):
 
     def location(self, project):
         return reverse("portfolio:case_study", kwargs={"slug": project["name"].lower()})
-
-    def lastmod(self, project):
-        return LAST_CONTENT_UPDATE

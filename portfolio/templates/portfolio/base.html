@@ -24,6 +24,7 @@
   <meta name="twitter:image" content="{{ seo.image }}">
   <meta name="twitter:image:alt" content="{{ seo.title }}">
   <script type="application/ld+json">{{ seo.json_ld|safe }}</script>
+  <script src="{% static 'portfolio/js/theme-init.js' %}"></script>
   <link rel="preload" href="{% static 'portfolio/css/site.css' %}" as="style">
   <link rel="stylesheet" href="{% static 'portfolio/css/site.css' %}">
   {% block extra_head %}{% endblock %}
