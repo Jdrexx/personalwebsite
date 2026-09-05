@@ -12,12 +12,12 @@ SITE_CONTENT = {
     "email": "Jon@jdreksler.com",
     "phone": "(206) 659-9755",
     "github": "https://github.com/Jdrexx",
-    "headline": "Websites and AI automation built around your business",
+    "headline": "Technical Implementation & Customer Success",
     "tagline": (
-        "I design, build, and support custom websites, web apps, and AI workflow "
-        "automation for small businesses and service teams. You get work that "
-        "saves your people time, plus a real person who answers when something "
-        "comes up."
+        "I help customers and operating teams adopt new software and turn manual "
+        "workflows into reliable, usable systems. Four-plus years owning software "
+        "rollouts, onboarding, and AI workflow automation for client teams - from "
+        "requirements and configuration through launch and successful use."
     ),
     "summary": (
         "Every project starts with listening. We talk through how your team actually "
@@ -28,10 +28,14 @@ SITE_CONTENT = {
         "does being easy to work with."
     ),
     "resume_summary": (
-        "Project manager and technical consultant with a Computer Science degree and "
-        "experience spanning software rollouts, client-facing operations, and workflow "
-        "automation. Background in project management, system implementations, and "
-        "customer success across multiple industries."
+        "Technical implementation and customer success professional with 4+ years "
+        "leading software rollouts, workflow redesign, technical consulting, and "
+        "cross-functional projects, supported by 12+ years in customer-facing "
+        "operations. BS in Computer Science with hands-on experience in AI workflow "
+        "automation, data pipelines, websites, training, and process documentation. "
+        "Skilled at translating business requirements into usable systems, "
+        "coordinating stakeholders, and guiding teams from discovery through launch "
+        "and adoption."
     ),
     "cta": {
         "primary_label": "View Projects",
@@ -41,15 +45,15 @@ SITE_CONTENT = {
     },
     "status": {
         "emoji": "⚡",
-        "text": "Available for AI automation and website projects",
+        "text": "Open to implementation, onboarding, and customer success roles",
         "link": "/contact/",
         "link_label": "Say hello",
     },
     "metrics": [
-        {"value": "20+", "label": "GitHub Projects"},
-        {"value": "12+", "label": "Years in Customer Service"},
-        {"value": "30+", "label": "Tools & Technologies"},
-        {"value": "5", "label": "Industries Served"},
+        {"value": "100%", "label": "Team Adoption on Company-Wide Rollout"},
+        {"value": "15%", "label": "Output Gain After Process Redesign"},
+        {"value": "1 wk", "label": "Core Production Timeline Compressed"},
+        {"value": "4+", "label": "Years Owning Software Rollouts"},
     ],
     "skills": [
         "AI Workflow Automation",
@@ -88,7 +92,7 @@ SITE_CONTENT = {
         {
             "company": "Sazzco",
             "location": "Remote / USA",
-            "role": "Technical Project Manager",
+            "role": "Independent Technical Consultant, Client Solutions",
             "dates": "January 2026 – Present",
             "bullets": [
                 "Designed and deployed responsive websites integrated with business systems, managing full lifecycle from requirements gathering through testing and deployment.",
@@ -117,23 +121,21 @@ SITE_CONTENT = {
             "role": "Project Manager",
             "dates": "March 2021 – August 2024",
             "bullets": [
-                "Led company-wide software rollout achieving full team adoption through structured training, change management, and hands-on user support.",
-                "Built and maintained eCommerce platform on WordPress, integrating product listings, payment systems, and order fulfillment workflows.",
-                "Analyzed production data to identify bottlenecks and implemented process changes that helped compress timelines during peak demand.",
-                "Directed vendor coordination, inventory management, and production scheduling that contributed to increased overall output.",
+                "Led a company-wide software rollout for a Los Angeles clothing manufacturer, translating operational workflows into system configuration and team training and achieving 100% team adoption.",
+                "Redesigned production processes and coordinated vendor and inventory dependencies, increasing overall output by 15% and compressing production timelines by one week.",
+                "Built and maintained the company eCommerce platform on WordPress, integrating product listings, payment systems, and order fulfillment workflows.",
                 "Created data-driven stakeholder presentations, analyzing project metrics and visualizing key insights for decision-making.",
             ],
         },
         {
             "company": "Supertutor Media, Inc.",
             "location": "Los Angeles, CA",
-            "role": "Project Manager",
+            "role": "Office Manager",
             "dates": "April 2019 – February 2021",
             "bullets": [
-                "Integrated Excel-based tracking systems with automated email campaigns, enhancing data accuracy and response times across operations.",
-                "Self-studied tax code to resolve complex payroll compliance issues, achieving full regulatory compliance and avoiding penalties.",
-                "Detected and reported fraudulent transactions through systematic financial monitoring, helping prevent losses.",
+                "Built Excel and email automations and fraud-detection controls that strengthened payroll compliance and prevented thousands of dollars in losses.",
                 "Maintained website content and coordinated targeted email marketing campaigns, supporting user engagement and retention efforts.",
+                "Self-studied tax code to resolve complex compliance issues, achieving full regulatory compliance and avoiding penalties.",
             ],
         },
         {
